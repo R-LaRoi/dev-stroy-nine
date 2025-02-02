@@ -14,26 +14,6 @@ body {
   font-family: var(--font-aspekta500);
 }
 
-.header-main {
-  font-family: var(--font-aspekta800);
-  z-index: 10;
-}
-.hero-image-inner {
-  position: relative;
-  overflow: hidden;
-  height: 550px;
-  width: 100%;
-  z-index: 49;
-}
-
-@media screen and (min-width: 1024px) {
-  .hero-image-inner {
-    width: 687px;
-    height: 491px;
-    margin: 0 auto;
-  }
-}
-
 .hero-mask-1,
 .hero-mask-2,
 .hero-mask-3,
@@ -52,9 +32,9 @@ body {
 }
 .hero-text {
   font-family: var(--font-aspekta800);
-  font-size: 25vw;
+  font-size: 27vw;
   position: relative;
-  margin-top: -18%;
+  margin-top: -25%;
   text-align: center;
   padding-left: 5%;
   padding-right: 5%;
@@ -64,7 +44,7 @@ body {
 
 .hero-sub-text {
   position: relative;
-  margin-top: -10%;
+  margin-top: 10%;
   text-align: center;
   padding-left: 20%;
   padding-right: 20%;
@@ -72,4 +52,31 @@ body {
   font-family: var(--font-aspekta800);
   font-size: 4.5svw;
   line-height: 1;
+}
+
+.header-main {
+  font-family: var(--font-aspekta800);
+  z-index: 10;
+}
+.hero-image-inner {
+  position: relative;
+  overflow: hidden;
+  height: 550px;
+  width: 100%;
+  z-index: 49;
+  margin-top: 8rem;
+}
+
+@media screen and (min-width: 700px) {
+  .hero-image-inner {
+    width: 687px;
+    height: 491px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .hero-text {
+    margin-top: 5%;
+  }
 }

@@ -2,6 +2,9 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Props = {}
 
@@ -31,13 +34,52 @@ export default function HeroText({ }: Props) {
     }
   }, [showHeroText]);
 
+  useEffect(() => {
+    const lines = gsap.utils.toArray<HTMLElement>('.hero-sub-text > div');
+
+    lines.forEach((line, index) => {
+      gsap.fromTo(line,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: line,
+            start: "top 80%",
+            once: true
+          },
+          delay: 0.2 * index
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
     <>
       {showHeroText && (
-        <div className="hero-text " ref={heroTextRef}>
+        <div className="hero-text" ref={heroTextRef}>
           STROY
         </div>
       )}
+
+      <div>
+        <div className='hero-sub-text text-center text-xl uppercase'>
+          <div>Hi! I'm Rachel, creative</div>
+          <div>developer working </div>
+          <div>with awesome people </div>
+          <div>like you to create </div>
+          <div>memorable web</div>
+          <div> experiences that are</div>
+          <div>user-friendly and</div>
+          <div>designed to go places.</div>
+        </div>
+      </div>
     </>
   )
 }
