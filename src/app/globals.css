@@ -61,3 +61,15 @@ body {
   bottom: -1.2svh;
   z-index: 10;
 }
+
+.hero-sub-text {
+  position: relative;
+  margin-top: -10%;
+  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+  text-transform: uppercase;
+  font-family: var(--font-aspekta800);
+  font-size: 4.5svw;
+  line-height: 1;
+}

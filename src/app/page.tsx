@@ -1,6 +1,7 @@
 import Header from "./Components/Header";
 import ImageSlider from "./Components/ImageSlider";
 import Footer from "./Components/Footer"
+import HeroText from "./Components/HeroText";
 export default function Home() {
   return (
     <>
@@ -9,9 +10,7 @@ export default function Home() {
       <div className="p-5">
         <ImageSlider />
       </div>
-      <div className="hero-text -translate-y-[10%]">
-        <div>STROY</div>
-      </div>
+      <HeroText />
       <Footer />
     </>
   );
