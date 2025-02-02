@@ -1,16 +1,43 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
 
 type Props = {}
 
 export default function HeroText({ }: Props) {
+  const heroTextRef = useRef<HTMLDivElement>(null);
+  const [showHeroText, setShowHeroText] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowHeroText(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (showHeroText && heroTextRef.current) {
+      gsap.fromTo(heroTextRef.current,
+        { y: 100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power4.out"
+        }
+      );
+    }
+  }, [showHeroText]);
+
   return (
     <>
-      <div className="hero-text -translate-y-[25%]">
-        <div>STROY</div>
-      </div>
-      <div className=' hero-sub-text textcenter text-xl uppercase'>
-        Hi! I'm Rachel, creative developer working with awesome people like you to create memorable web experiences that are user-friendly and designed to go places.
-      </div>
+      {showHeroText && (
+        <div className="hero-text " ref={heroTextRef}>
+          STROY
+        </div>
+      )}
     </>
   )
 }
