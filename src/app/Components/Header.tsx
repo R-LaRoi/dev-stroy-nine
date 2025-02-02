@@ -5,7 +5,7 @@ import gsap from 'gsap';
 
 type Props = {}
 
-export default function Header({ }: Props) {
+export default function Header() {
   const headerRef = useRef(null);
 
   useEffect(() => {
