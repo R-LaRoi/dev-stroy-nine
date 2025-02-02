@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-type Props = {}
+
 
 export default function HeroText() {
   const heroTextRef = useRef<HTMLDivElement>(null);

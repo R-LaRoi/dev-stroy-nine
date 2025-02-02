@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
-type Props = {}
+
 
 export default function Header() {
   const headerRef = useRef(null);
