@@ -16,10 +16,10 @@ export default function Home() {
       <HeroText />
 
       <section className="part-three">
-        <div className="p-5">
-          <RotatingCircleText />
-        </div>
-        <Work />
+
+        <RotatingCircleText />
+
+        {/* <Work /> */}
       </section>
       <Footer />
     </>
