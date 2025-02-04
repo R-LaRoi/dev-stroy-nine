@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function RotatingCircleText() {
+export default function RotatingCircleText({ isDarkMode = false }) {
   const circleRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const maskRef = useRef<SVGCircleElement>(null);
@@ -56,7 +56,6 @@ export default function RotatingCircleText() {
     <div>
       <div ref={containerRef} className="circle-container relative w-full h-screen overflow-hidden">
         <div ref={circleRef} className="circle-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-
         </div>
 
         <svg
@@ -78,8 +77,8 @@ export default function RotatingCircleText() {
           <circle
             cx="50"
             cy="50"
-            r="110"
-            fill="#fe1034"
+            r="150"
+            className={isDarkMode ? 'fill-[#f4e887]' : 'fill-[#fe1034]'}
             mask="url(#circleMask)"
           />
         </svg>

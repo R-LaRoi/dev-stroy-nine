@@ -5,7 +5,13 @@ import Footer from "./Components/Footer"
 import HeroText from "./Components/HeroText";
 import RotatingCircleText from "./Components/CircleText";
 import Work from "./Components/Work";
+import SectionMain from "./Components/SectionMain";
+
+
+
 export default function Home() {
+
+
   return (
     <>
       <Header />
@@ -16,15 +22,20 @@ export default function Home() {
         </div>
         <HeroText />
 
-        <section className='relative h-[1200px] part-three'
-        >
+        <section className='relative h-[1200px] part-three'>
 
           <RotatingCircleText />
-
-
         </section>
-        <Work />
+
+
+        <div className="relative">
+
+          <Work />
+          <SectionMain />
+        </div>
+
         <Footer />
+
       </div>
     </>
   );
