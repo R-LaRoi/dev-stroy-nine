@@ -19,7 +19,7 @@ export default function Home() {
 
         <RotatingCircleText />
 
-        {/* <Work /> */}
+        <Work />
       </section>
       <Footer />
     </>
