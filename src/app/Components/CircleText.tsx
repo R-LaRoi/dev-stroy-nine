@@ -50,36 +50,42 @@ export default function RotatingCircleText() {
     }
   }, []);
 
+
   return (
-    <div ref={containerRef} className="circle-container relative w-full h-screen overflow-hidden">
-      <div ref={circleRef} className="circle-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+
+    <div>
+      <div ref={containerRef} className="circle-container relative w-full h-screen overflow-hidden">
+        <div ref={circleRef} className="circle-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+
+        </div>
+
+        <svg
+          className="mask fixed top-0 left-0 w-full h-full z-10 pointer-events-none"
+          viewBox="0 0 100 100"
+        >
+          <defs>
+            <mask id="circleMask">
+              <circle
+                cx="50"
+                cy="50"
+                r="0"
+                fill="white"
+                ref={maskRef}
+              />
+            </mask>
+          </defs>
+
+          <circle
+            cx="50"
+            cy="50"
+            r="110"
+            fill="#fe1034"
+            mask="url(#circleMask)"
+          />
+        </svg>
+
 
       </div>
-
-      <svg
-        className="mask fixed top-0 left-0 w-full h-full z-10 pointer-events-none"
-        viewBox="0 0 100 100"
-      >
-        <defs>
-          <mask id="circleMask">
-            <circle
-              cx="50"
-              cy="50"
-              r="0"
-              fill="white"
-              ref={maskRef}
-            />
-          </mask>
-        </defs>
-
-        <circle
-          cx="50"
-          cy="50"
-          r="110"
-          fill="#fe1034"
-          mask="url(#circleMask)"
-        />
-      </svg>
     </div>
   );
 }

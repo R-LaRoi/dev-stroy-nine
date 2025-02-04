@@ -9,19 +9,23 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="pb-[5%]"></div>
-      <div className="p-5">
-        <ImageSlider />
-      </div>
-      <HeroText />
+      <div >
+        <div className="pb-[5%]"></div>
+        <div className="p-5" >
+          <ImageSlider />
+        </div>
+        <HeroText />
 
-      <section className="part-three">
+        <section className='relative h-[1200px] part-three'
+        >
 
-        <RotatingCircleText />
+          <RotatingCircleText />
 
+
+        </section>
         <Work />
-      </section>
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 }

@@ -69,7 +69,7 @@ export default function HeroText() {
       )}
 
       <div>
-        <div className='hero-sub-text text-center uppercase'>
+        <div className='hero-sub-text text-center uppercase '>
           <div>Hi! I&apos;m Rachel, creative</div>
           <div>developer working </div>
           <div>with awesome people </div>
@@ -79,7 +79,9 @@ export default function HeroText() {
           <div>user-friendly and</div>
           <div>designed to go places.</div>
         </div>
+        <div className='py-12'></div>
       </div>
+
     </>
   )
 }

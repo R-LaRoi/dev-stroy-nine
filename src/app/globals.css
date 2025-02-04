@@ -69,8 +69,8 @@ body {
 }
 
 .next-section {
-  background-color: #fe1034;
-  height: 100vh;
+  background-color: #080809;
+  /* height: 100vh; */
 }
 
 .circle-container {
@@ -116,6 +116,12 @@ body {
   height: 100vh;
 }
 
+.title {
+  color: #f4e6d7;
+  font-family: var(--font-aspekta800);
+  font-size: 6.5svw;
+  line-height: 80px;
+}
 @media screen and (min-width: 700px) {
   .hero-image-inner {
     width: 687px;
