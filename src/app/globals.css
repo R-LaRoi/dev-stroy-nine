@@ -146,6 +146,11 @@ body {
     padding-right: 8%;
     padding-bottom: 4rem;
   }
+
+  .mb-video {
+    width: 100%;
+    margin-left: 0%;
+  }
 }
 
 * {
@@ -200,4 +205,8 @@ body {
   background: red;
   display: flex;
   align-items: center;
+}
+
+.mb-video {
+  width: 100%;
 }
