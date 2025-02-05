@@ -6,7 +6,7 @@ import HeroText from "./Components/HeroText";
 import RotatingCircleText from "./Components/CircleText";
 import Work from "./Components/Work";
 import SectionMain from "./Components/SectionMain";
-
+import MarqueeImages from "./Components/MarqueeImages";
 
 
 export default function Home() {
@@ -32,6 +32,8 @@ export default function Home() {
 
           <Work />
           <SectionMain />
+          <div className=""> <MarqueeImages /></div>
+
         </div>
 
         <Footer />

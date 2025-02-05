@@ -210,3 +210,8 @@ body {
 .mb-video {
   width: 100%;
 }
+
+.marquee-text {
+  font-family: var(--font-aspekta800);
+  font-size: 10svw;
+}

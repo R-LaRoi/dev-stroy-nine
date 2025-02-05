@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWordpressSimple, faShopify, faSquarespace, faWebflow, faReact } from '@fortawesome/free-brands-svg-icons';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SectionMain() {
@@ -28,7 +29,7 @@ export default function SectionMain() {
         </h1>
       </div>
       <div className='relative flex flex-col sm:flex-row items-center justify-center brand px-4 py-16 md:px-8  overflow-hidden'>
-        <div className="w-25 sm:w-[80%] max-w-5xl mx-2 sm:mx-4 ">
+        <div className="w-25 sm:w-[76%] max-w-5xl mx-2 sm:mx-4 ">
           <video
             playsInline
             autoPlay
@@ -46,26 +47,32 @@ export default function SectionMain() {
         <div className='absolute left-4 top-1/2 transform -translate-y-1/2 text-2xl sm:text-3xl lg:text-4xl uppercase font-bold whitespace-nowrap z-10 text-white'>TAMIKA</div>
         <div className='absolute right-4 top-1/2 transform -translate-y-1/2 text-2xl sm:text-3xl lg:text-4xl uppercase font-bold whitespace-nowrap z-10 text-white'>DUNCAN</div>
       </div>
-      <div className="flex flex-col sm:flex-row items-center justify-center h-auto p-4 sm:p-8 space-y-4 sm:space-y-0 sm:space-x-8">
-        <div className="text-lg lg:text-xl text-justify w-full sm:w-[40ch]">
+      <h1 className='text-2xl font-bold uppercase text-center'>Define and build your digital presence.</h1>
+      <div className="flex flex-col sm:flex-row items-center justify-center h-auto  space-y-4 sm:space-y-0 py-16 ">
+
+        <div className="text-xs lg:text-sm text-justify w-75 sm:w-[40ch] px-4 text-zinc-700">
           <div>
-            We&apos;re here to transform complexity into user-friendly solutions that drive engagement and fuel growth for your brand.
+            In an era defined by rapid technological advancement, I am committed to reshaping the digital landscape through innovative web UI design and development. With a background as both an artist and a developer, I navigate the complexities of starting from scratch, understanding that the initial phase of any project—sourcing essential tools and building valuable relationships—often presents the greatest challenges.
           </div>
-          <div>
-            Every project is a canvas for innovation, pushing boundaries with an unwavering commitment to excellence.
-          </div>
+
         </div>
-        <div className="text-lg lg:text-xl text-justify w-full sm:w-[40ch]">
-          <div>
-            We&apos;re here to transform complexity into user-friendly solutions that drive engagement and fuel growth for your brand.
-          </div>
-          <div>
-            Every project is a canvas for innovation, pushing boundaries with an unwavering commitment to excellence.
-          </div>
+        <div className="text-xs lg:text-sm text-justify w-75 sm:w-[40ch] px-4 text-zinc-700">
+          Through my experience, I have discovered that the development process is rich with opportunities for growth and innovation. I focus on transforming complex design challenges into intuitive, user-friendly solutions, demonstrating that technology can be both functional and visually engaging.
         </div>
+
+        <div>
+
+        </div>
+
+      </div>
+      <div className="flex items-left justify-center space-x-4 mb-4 md:space-x-6 md:mb-8 py-16">
+        <FontAwesomeIcon icon={faWordpressSimple} className="text-5xl" />
+        <FontAwesomeIcon icon={faShopify} className="text-5xl" />
+        <FontAwesomeIcon icon={faSquarespace} className="text-5xl" />
+        <FontAwesomeIcon icon={faWebflow} className="text-5xl" />
+        <FontAwesomeIcon icon={faReact} className="text-5xl" />
       </div>
 
-
-    </div>
+    </div >
   )
 }
