@@ -22,9 +22,9 @@ export default function SectionMain() {
   }, []);
 
   return (
-    <div ref={sectionRef} className='h-screen relative z-10'>
-      <div className=''>
-        <h1 className='text-3xl text-center w-full max-w-2xl mx-auto px-3 title t-mobile '>
+    <div ref={sectionRef} className='h-screen relative z-10 '>
+      <div className='pb-32'>
+        <h1 className='hero-sub-text text-center uppercase'>
           Empowering Brands through Innovative Web Design
         </h1>
       </div>
@@ -47,8 +47,8 @@ export default function SectionMain() {
         <div className='absolute left-4 top-1/2 transform -translate-y-1/2 text-2xl sm:text-3xl lg:text-4xl uppercase font-bold whitespace-nowrap z-10 text-white'>TAMIKA</div>
         <div className='absolute right-4 top-1/2 transform -translate-y-1/2 text-2xl sm:text-3xl lg:text-4xl uppercase font-bold whitespace-nowrap z-10 text-white'>DUNCAN</div>
       </div>
-      <h1 className='text-2xl font-bold uppercase text-center'>Define and build your digital presence.</h1>
-      <div className="flex flex-col sm:flex-row items-center justify-center h-auto  space-y-4 sm:space-y-0 py-16 ">
+      <h1 className='text-3xl font-bold uppercase text-center p-16'>Define and build your digital presence.</h1>
+      <div className="flex flex-col sm:flex-row items-center justify-center h-auto  space-y-4 sm:space-y-0 py-16  ">
 
         <div className="text-xs lg:text-sm text-justify w-75 sm:w-[40ch] px-4 text-zinc-700">
           <div>
@@ -61,7 +61,6 @@ export default function SectionMain() {
         </div>
 
         <div>
-
         </div>
 
       </div>

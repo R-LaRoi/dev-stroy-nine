@@ -50,7 +50,7 @@ export default function Work() {
   return (
     <div ref={sectionRef}>
       <div className="next-section -mt-14">
-        <h4 className="uppercase text-center relative top-1/4 title t-mobile p-[20%]">
+        <h4 className="hero-sub-text text-center uppercase ">
           <div>curated</div> work</h4>
         <div>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 ">

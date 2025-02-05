@@ -118,8 +118,9 @@ body {
 
 .title {
   font-family: var(--font-aspekta800);
-  font-size: 6.5svw;
-  line-height: 80px;
+  padding: 4rem;
+  font-size: 4.5svw;
+  display: flex;
 }
 @media screen and (min-width: 700px) {
   .hero-image-inner {
@@ -151,16 +152,6 @@ body {
     width: 100%;
     margin-left: 0%;
   }
-}
-
-* {
-  position: relative;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: "Kanit", sans-serif;
 }
 
 .circle {

@@ -32,10 +32,9 @@ export default function Home() {
 
           <Work />
           <SectionMain />
-          <div className=""> <MarqueeImages /></div>
 
         </div>
-
+        <div className="pt-32"> <MarqueeImages /></div>
         <Footer />
 
       </div>
