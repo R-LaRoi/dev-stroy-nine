@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
+import Image from 'next/image';
 
 const ImageSlider = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -51,7 +52,7 @@ const ImageSlider = () => {
       {images.map((src, index) => (
         <div key={index} className={`hero-mask-${index + 1} absolute top-0 left-0 w-full h-full`}>
           <div className={`hero-image-${index + 1} w-full h-full`}>
-            <img
+            <Image
               ref={(el) => {
                 imagesRef.current[index] = el;
               }}

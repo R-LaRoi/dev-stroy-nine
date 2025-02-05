@@ -47,7 +47,7 @@ export default function SectionMain() {
         <div className='absolute right-4 top-1/2 transform -translate-y-1/2 text-2xl sm:text-3xl lg:text-4xl uppercase font-bold whitespace-nowrap z-10 text-white'>DUNCAN</div>
       </div>
       <div className=' text-center p-4 text-lg lg:text-3xl'>
-        <div>We're here to transform complexity into user-friendly solutions that drive engagement and fuel growth for your brand.</div>
+        <div>We&apos;re here to transform complexity into user-friendly solutions that drive engagement and fuel growth for your brand.</div>
         <div>Every project is a canvas for innovation, pushing boundaries with an unwavering commitment to excellence.</div>
       </div>
     </div>

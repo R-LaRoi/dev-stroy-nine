@@ -1,9 +1,8 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projectItems } from '../Data/projectData'
 import Link from 'next/link'
-import RotatingCircleText from './CircleText';
 
 
 gsap.registerPlugin(ScrollTrigger);
