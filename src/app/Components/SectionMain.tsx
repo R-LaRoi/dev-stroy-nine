@@ -35,7 +35,7 @@ export default function SectionMain() {
             autoPlay
             muted
             loop
-            className="w-full h-auto sm:w-[70%] ml-[18%] mb-video"
+            className="w-full h-auto sm:w-[70%] ml-[15%] mb-video"
             id="jmp"
           >
             <source

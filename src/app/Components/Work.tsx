@@ -49,9 +49,9 @@ export default function Work() {
 
   return (
     <div ref={sectionRef}>
-      <div className="next-section -mt-14">
-        <h4 className="hero-sub-text text-center uppercase ">
-          <div>curated</div> work</h4>
+      <div className="next-section -mt-32">
+        <h4 className="hero-sub-text text-center uppercase p-32">
+          curated <br />work</h4>
         <div>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 ">
             {projectItems.map((item, index) => (

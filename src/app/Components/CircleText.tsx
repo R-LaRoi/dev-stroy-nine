@@ -2,7 +2,21 @@ import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function RotatingCircleText({ isDarkMode = false }) {
+interface RotatingCircleTextProps {
+  text: string;
+  backgroundColor: string;
+  textColor: string;
+  rotationDuration?: number;
+  maxRadius?: number;
+}
+
+export default function RotatingCircleText({
+  text,
+  backgroundColor,
+  textColor,
+  rotationDuration = 20,
+  maxRadius = 150
+}: RotatingCircleTextProps) {
   const circleRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const maskRef = useRef<SVGCircleElement>(null);
@@ -10,25 +24,21 @@ export default function RotatingCircleText({ isDarkMode = false }) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const text = "Design Beyond limits • ";
     const chars = text.split("");
     const deg = 360 / chars.length;
 
     if (circleRef.current && maskRef.current) {
-
       circleRef.current.innerHTML = chars.map(
         (char, i) => `<span style="transform:rotate(${i * deg}deg)">${char}</span>`
       ).join("");
 
-      // Continuous text rotation
       gsap.to(circleRef.current, {
         rotation: 360,
-        duration: 20,
+        duration: rotationDuration,
         repeat: -1,
         ease: "linear"
       });
 
-      // Circle scaling on scroll
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: "top top",
@@ -36,10 +46,9 @@ export default function RotatingCircleText({ isDarkMode = false }) {
         scrub: true,
         pin: true,
         onUpdate: (self) => {
-          // Dynamically scale the circle
           gsap.to(maskRef.current, {
             attr: {
-              r: self.progress * 150, // Scales from 0 to 150
+              r: self.progress * maxRadius,
               cx: 50,
               cy: 50
             },
@@ -48,14 +57,16 @@ export default function RotatingCircleText({ isDarkMode = false }) {
         }
       });
     }
-  }, []);
-
+  }, [text, rotationDuration, maxRadius]);
 
   return (
-
     <div>
       <div ref={containerRef} className="circle-container relative w-full h-screen overflow-hidden">
-        <div ref={circleRef} className="circle-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+        <div
+          ref={circleRef}
+          className="circle-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
+          style={{ color: textColor }}
+        >
         </div>
 
         <svg
@@ -77,13 +88,11 @@ export default function RotatingCircleText({ isDarkMode = false }) {
           <circle
             cx="50"
             cy="50"
-            r="150"
-            className={isDarkMode ? 'fill-[#f4e887]' : 'fill-[#fe1034]'}
+            r={maxRadius}
+            fill={backgroundColor}
             mask="url(#circleMask)"
           />
         </svg>
-
-
       </div>
     </div>
   );
