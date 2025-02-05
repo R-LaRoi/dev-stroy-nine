@@ -3,7 +3,6 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
-
 const ImageSlider = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
