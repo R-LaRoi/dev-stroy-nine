@@ -44,7 +44,7 @@ const Services: React.FC = () => {
 
   return (
     <div ref={containerRef} className="mt-[30%] text-center">
-      <div className="title text-[5vw] uppercase font-bold">
+      <div className="title text-[9vw] uppercase font-bold">
         {textItems.map((item) => (
           <div key={item.id} className={`_${item.id}`}>
             <div className="tracking-[-0.05em] leading-none">

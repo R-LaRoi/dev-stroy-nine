@@ -51,7 +51,7 @@ export default function Work() {
     <div ref={sectionRef}>
       <div className="next-section -mt-32">
         <h4 className="hero-sub-text text-center uppercase p-32">
-          curated <br />work</h4>
+          work</h4>
         <div>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 ">
             {projectItems.map((item, index) => (
@@ -77,7 +77,7 @@ export default function Work() {
                     </div>
                     <div className="p-2 flex justify-between items-center">
                       <h4 className="text-xl uppercase font-semibold t">{item.title}</h4>
-                      <p className="text-sm text-gray-600 ">{item.description}</p>
+                      <p className="text-sm text-white ">{item.description}</p>
                     </div>
                   </div>
                 </Link>
