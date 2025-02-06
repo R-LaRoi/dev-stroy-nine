@@ -1,13 +1,18 @@
+'use client'
 import React from 'react'
 import Footer from '@/app/Components/Footer'
 import Header from '@/app/Components/Header'
-type Props = {}
+import Work from '@/app/Components/Work'
 
-export default function Work({ }: Props) {
+
+
+export default function WorkPage() {
   return (
     <>
       <Header />
-      <div>Work</div>
+      <div className='pt-[100%]'>
+        <Work />
+      </div>
       <Footer />
     </>
   )

@@ -68,7 +68,7 @@ export default function Work() {
                     }}
                     className="overflow-hidden"
                   >
-                    <div className="aspect-w-16 h-full ">
+                    <div className="aspect-w-16 h-full">
                       <img
                         src={item.image}
                         alt={item.title}

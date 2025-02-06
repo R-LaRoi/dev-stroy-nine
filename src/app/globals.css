@@ -42,6 +42,9 @@ body {
   z-index: 10;
 }
 
+.serv {
+  font-family: var(--font-aspekta800);
+}
 .hero-sub-text {
   position: relative;
   margin-top: 10%;

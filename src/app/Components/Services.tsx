@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Contact from './Contact';
+import AnimatedText from './AnimatedText';
+AnimatedText
 gsap.registerPlugin(ScrollTrigger);
 
 interface TextItem {
@@ -9,7 +11,7 @@ interface TextItem {
   text: string;
 }
 
-const Services: React.FC = () => {
+export default function Services() {
   const textItems: TextItem[] = [
     { id: '02', text: 'branding' },
     { id: '03', text: 'design' },
@@ -17,38 +19,14 @@ const Services: React.FC = () => {
     { id: '01', text: 'Collaboration' },
   ];
 
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      const textElements = containerRef.current.querySelectorAll('.gradient-text');
-
-      textElements.forEach((text) => {
-        gsap.to(text, {
-          color: 'rgba(0, 0, 0, 0.3)',
-          opacity: 1,
-          backgroundImage: 'linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 1) 100%)',
-          backgroundClip: 'text',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          scrollTrigger: {
-            trigger: text,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          }
-        });
-      });
-    }
-  }, []);
 
   return (
-    <div ref={containerRef} className="mt-[30%] text-center">
+    <div className="mt-[30%] text-center">
       <div className="title text-[9vw] uppercase font-bold">
         {textItems.map((item) => (
           <div key={item.id} className={`_${item.id}`}>
             <div className="tracking-[-0.05em] leading-none">
-              <div className="gradient-text">{item.text}</div>
+              <div className="gradient-text">        <AnimatedText text={item.text} /></div>
             </div>
           </div>
         ))}
@@ -63,4 +41,3 @@ const Services: React.FC = () => {
   );
 };
 
-export default Services;
