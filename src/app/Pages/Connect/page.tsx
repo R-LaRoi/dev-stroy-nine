@@ -3,7 +3,7 @@ import CircleText from '@/app/Components/CircleText'
 import Footer from '@/app/Components/Footer'
 import Header from '@/app/Components/Header'
 import React from 'react'
-Footer
+
 
 
 export default function Connect() {
