@@ -49,19 +49,19 @@ export default function Footer() {
         </div>
         <div className="flex flex-col">
           <Link
-            href="/work"
+            href="/Pages/Work"
             className=" hover:tracking-wider hover:text-zinc-700 transition-all duration-300"
           >
             WORK
           </Link>
           <Link
-            href="/services"
+            href="/Pages/Services"
             className="hover:tracking-wider hover:text-zinc-700 transition-all duration-300"
           >
             SERVICES
           </Link>
           <Link
-            href="/contact"
+            href="/Pages/Contact"
             className="hover:tracking-wider hover:text-zinc-700 transition-all duration-300"
           >
             CONTACT
