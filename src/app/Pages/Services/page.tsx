@@ -7,7 +7,6 @@ import AwesomeIcons from '@/app/Components/AwesomeIcons'
 import AnimatedText from '@/app/Components/AnimatedText'
 
 
-
 interface TextItem {
   id: string;
   text: string;

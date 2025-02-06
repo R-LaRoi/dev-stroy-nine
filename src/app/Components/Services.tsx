@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Contact from './Contact';
 import AnimatedText from './AnimatedText';
-AnimatedText
+
 gsap.registerPlugin(ScrollTrigger);
 
 interface TextItem {

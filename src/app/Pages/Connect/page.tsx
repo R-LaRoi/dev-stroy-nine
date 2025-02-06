@@ -26,7 +26,7 @@ export default function Connect() {
             </p>
 
             <h4 className="text-base sm:text-lg md:text-2xl lg:text-2xl leading-relaxed py-2">
-              I'm always happy to help—drop us a line and let's get started.
+              I&apos;m always happy to help—drop us a line and let&apos;s get started.
             </h4>
             <hr className="my-2 md:my-4" style={{ borderTop: '1px solid black' }} />
           </div>
