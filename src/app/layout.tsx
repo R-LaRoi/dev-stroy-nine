@@ -9,7 +9,6 @@ const aspekta = Aspekta({
 });
 
 
-
 const aspekta800 = Aspekta800({
   src: './Fonts/Aspekta-800.otf',
   variable: "--font-aspekta800",
