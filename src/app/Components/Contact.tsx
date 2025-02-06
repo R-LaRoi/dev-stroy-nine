@@ -60,8 +60,8 @@ export default function Contact() {
 
       {isHovered && (
         <div className="absolute inset-0 z-50 flex items-center justify-center">
-          <div className="w-48 h-48 bg-[#fe1034] rounded-full flex items-center justify-center ">
-            <span className="text-2xl font-bold">Let&apos;s <br />connect!</span>
+          <div className="w-48 h-48 bg-black rounded-full flex items-center justify-center ">
+            <span className="text-2xl font-bold text-center leading-none text-orange-100">Let&apos;s<br />connect!</span>
           </div>
         </div>
       )}
