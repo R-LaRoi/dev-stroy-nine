@@ -1,0 +1,56 @@
+.section-form {
+  background: #f4e6d7;
+  width: 100%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  margin: 1rem;
+
+  padding: 3rem;
+}
+
+.inputGroup {
+  position: relative;
+  margin-bottom: 20px;
+  padding-top: 30px;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 0.5px solid #171717;
+  background-color: transparent;
+  font-size: 16px;
+  padding: 5px 0px 40px 33px;
+  outline: none;
+}
+
+.inputGroup label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.inputGroup input:focus ~ label,
+.inputGroup input:valid ~ label,
+.inputGroup textarea:focus ~ label,
+.inputGroup textarea:valid ~ label {
+  top: -5px;
+  font-size: 16px;
+  color: #171717;
+}
+
+.submitButton {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
