@@ -15,7 +15,7 @@ export default function Work({ showProjects }: WorkProps) {
   const displayedItems = showProjects ? projectItems.slice(0, showProjects) : projectItems;
 
   useEffect(() => {
-    revealRefs.current.forEach((ref, index) => {
+    revealRefs.current.forEach((ref) => {
       if (ref) {
         gsap.fromTo(ref,
           { y: 50, opacity: 0 },
