@@ -40,6 +40,7 @@ export default function Work({ showProjects }: WorkProps) {
 
   return (
     <div>
+
       <div className="next-section -mt-32">
         <h4 className="hero-sub-text text-center uppercase p-32">work</h4>
         <div>

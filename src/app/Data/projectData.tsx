@@ -19,19 +19,19 @@ export const projectItems: projectItem[] = [
   },
 
   {
+    id: 'nine',
+    title: 'Atelier 718',
+    description: 'Design & Develop',
+    link: 'https://atelier718.com/',
+    image: 'https://github.com/user-attachments/assets/17cb54ef-5ccc-4d05-a821-a8686b7778b3',
+  },
+
+  {
     id: 'two',
     title: 'Ninety-Nine',
     description: 'Design & Development',
     link: 'https://fnk-99-vinyl-client.onrender.com/',
     image: 'https://github.com/user-attachments/assets/98835a41-5002-4c9a-b2ca-22851a58bda8',
-  },
-
-  {
-    id: 'one',
-    title: 'Artist Profile',
-    description: 'Design & Development',
-    link: 'https://www.rachelstroy.com/',
-    image: 'https://github.com/user-attachments/assets/416c1bb5-4b91-4c0e-a46c-e7cd486e2cd3',
   },
 
   {
@@ -41,6 +41,15 @@ export const projectItems: projectItem[] = [
     link: 'https://st-roi-studio.vercel.app/',
     image: 'https://github.com/user-attachments/assets/4dff6759-0d49-48e1-8d87-37bbf4b82e91',
   },
+  {
+    id: 'one',
+    title: 'Artist Profile',
+    description: 'Design & Development',
+    link: 'https://www.rachelstroy.com/',
+    image: 'https://github.com/user-attachments/assets/416c1bb5-4b91-4c0e-a46c-e7cd486e2cd3',
+  },
+
+
   {
     id: 'five',
     title: 'TSC',
@@ -66,19 +75,13 @@ export const projectItems: projectItem[] = [
     image: 'https://github.com/user-attachments/assets/5e43a79a-8f2e-4a1e-bf2e-147c904a4850',
   },
 
-  {
-    id: 'nine',
-    title: 'Atelier 718',
-    description: 'Design & Develop',
-    link: '/ten',
-    image: 'https://github.com/user-attachments/assets/17cb54ef-5ccc-4d05-a821-a8686b7778b3',
-  },
+
 
   {
     id: 'ten',
     title: 'Career Planning',
     description: 'Design & Development',
-    link: '/thirteen',
+    link: 'https://icp-v1.vercel.app/',
     image: 'https://github.com/user-attachments/assets/4bad19f8-9798-4b4b-acee-8f6020a6b6cf',
   },
 

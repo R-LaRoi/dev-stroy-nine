@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import emailjs from 'emailjs-com';
 import '@/app/Stylesheets/form.css'
-import Footer from './Footer';
+
 
 interface FormInputs {
   name: string;

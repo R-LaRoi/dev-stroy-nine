@@ -43,16 +43,22 @@ export default function Services() {
                 src="https://github.com/user-attachments/assets/43b9c48b-f119-44f6-a890-19c6e135db95"
                 type="video/mp4"
               />
+
             </video>
-            <AwesomeIcons />
+
           </div>
+
         </section>
+
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 text-justify py-4 text-lg font">
+
           <ServiceItem
             number="01"
             title="Design"
             description="Creating dynamic interfaces with key features, including user-friendly interactions, animations, and intuitive design, that together cultivate a vibrant and engaging user experience."
           />
+
           <ServiceItem
             number="02"
             title="Development"
@@ -63,6 +69,9 @@ export default function Services() {
             title="Custom Solution"
             description="We deliver complete website solutions that define your digital presence. Using JavaScript frameworks like React and Next.js, we build responsive, interactive applications. Our skills in API integration and optimization ensure a seamless user experience across all devices, making your web presence both functional and memorable."
           />
+          <div>
+            <AwesomeIcons />
+          </div>
         </div>
 
 
