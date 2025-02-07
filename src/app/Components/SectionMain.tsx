@@ -22,8 +22,8 @@ export default function SectionMain() {
   }, []);
 
   return (
-    <div ref={sectionRef} className='h-screen relative z-10 '>
-      <div className='pb-32'>
+    <div ref={sectionRef} className='h-screen relative z-10 bg-[#f4e6d7]'>
+      <div className='py-32  '>
         <h1 className='hero-sub-text text-center uppercase'>
           Empowering Brands through Innovative Web Design
         </h1>

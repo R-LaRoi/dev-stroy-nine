@@ -7,6 +7,7 @@ interface MarqueeTextProps {
 }
 
 export default function MarqueeText({ children, duration = 45 }: MarqueeTextProps) {
+
   const marqueeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -13,7 +13,6 @@ import Services from "./Components/Services";
 
 export default function Home() {
 
-
   return (
     <>
       <Header />
@@ -33,16 +32,14 @@ export default function Home() {
           />
         </section>
         <div className="relative">
-          <Work />
+          <Work showProjects={4} />
           <SectionMain />
         </div>
         <div className="pt-32">
           <MarqueeImages />
         </div>
         <Services />
-
         <Footer />
-
       </div>
     </>
   );
