@@ -51,7 +51,7 @@ export default function Work({ showProjects }: WorkProps) {
                     ref={(el: HTMLDivElement | null) => { if (el) revealRefs.current[index] = el }}
                     className="overflow-hidden"
                   >
-                    <div className="aspect-w-16 h-full">
+                    <div className="aspect-w-16 h-full" key={index}>
                       <img
                         src={item.image}
                         alt={item.title}
