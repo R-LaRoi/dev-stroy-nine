@@ -2,19 +2,22 @@
 
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
+import Image from 'next/image';
 
-const ImageSlider = () => {
+
+export default function ImageSlider() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
 
   const images = [
-    "https://github.com/user-attachments/assets/f7597525-bc4a-4089-9110-2c7d3023e2c8",
-    "https://github.com/user-attachments/assets/c4154b4b-0159-45b5-925b-067948a99c78",
-    "https://github.com/user-attachments/assets/928dd12a-5f89-495c-aef7-b574419f6b1c",
-    "https://github.com/user-attachments/assets/c6415b4a-89fb-432d-a501-fcf63582f8c9",
-    "https://github.com/user-attachments/assets/47a09242-1ae7-4f6e-b1cc-60ff5107cb9c",
-    "https://github.com/user-attachments/assets/e68635f7-efc4-4fbc-9def-3eb236b660a7",
+    "https://github.com/user-attachments/assets/3d9eadd1-3235-41d0-a96c-32799452c6c5",
+    "https://github.com/user-attachments/assets/a41507ba-d35e-429c-a892-69c30eaf3aac",
+    "https://github.com/user-attachments/assets/f4f90515-a796-4b24-8ef2-d87e19d94f3d",
+    "https://github.com/user-attachments/assets/bdb55176-afca-4462-bca4-0b3a4333e479",
+    "https://github.com/user-attachments/assets/9dd9e888-e903-45f0-9ade-4b0f886fb691",
+    "https://github.com/user-attachments/assets/09359235-9d6a-405b-bc1f-4fac5408172d"
   ];
+
 
   useEffect(() => {
     const imageElements = imagesRef.current.filter((img): img is HTMLImageElement => img !== null);
@@ -51,13 +54,15 @@ const ImageSlider = () => {
       {images.map((src, index) => (
         <div key={index} className={`hero-mask-${index + 1} absolute top-0 left-0 w-full h-full`}>
           <div className={`hero-image-${index + 1} w-full h-full`}>
-            <img
+            <Image
               ref={(el) => {
-                imagesRef.current[index] = el;
+                imagesRef.current[index] = el as HTMLImageElement;
               }}
               src={src}
               alt={`Hero ${index + 1}`}
-              className="cover-image w-full h-full object-cover"
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="100vw"
             />
           </div>
         </div>
@@ -66,4 +71,4 @@ const ImageSlider = () => {
   );
 };
 
-export default ImageSlider;
+
