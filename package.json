@@ -20,6 +20,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
+    "react-type-animation": "^3.2.0",
     "split-type": "^0.3.4"
   },
   "devDependencies": {

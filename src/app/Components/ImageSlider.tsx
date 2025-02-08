@@ -25,11 +25,14 @@ export default function ImageSlider() {
 
     gsap.set(imageElements, { clipPath: 'inset(0 100% 0 0)', scale: 1.5 });
 
+    tl.delay(2);
+
+
     imageElements.forEach((img, index) => {
       tl.to(img, {
         clipPath: 'inset(0 0% 0 0)',
         scale: 1,
-        duration: 1,
+        duration: .8,
         ease: "power2.inOut"
       }, index * 2);
     });
@@ -62,6 +65,7 @@ export default function ImageSlider() {
               fill
               style={{ objectFit: 'cover' }}
               sizes="100vw"
+              loading="lazy"
             />
           </div>
         </div>
