@@ -21,7 +21,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="fixed bottom-0 left-0 right-0 p-4 text-[15px] uppercase font-bold">
+    <footer ref={footerRef} className="fixed bottom-0 left-0 right-0 p-4 text-[15px] uppercase font-bold z-50">
       <div className="flex justify-between">
         <div className="flex flex-col space-y-0">
           <Link
