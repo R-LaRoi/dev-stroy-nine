@@ -6,28 +6,32 @@ import Link from 'next/link';
 
 
 export default function Header() {
-  const headerRef = useRef(null);
-
-  useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-    tl.fromTo(headerRef.current,
-      { y: -50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 }
-    );
-
-    return () => {
-      tl.kill();
-    };
-  }, []);
-
   return (
-    <div ref={headerRef} className=" fixed z-50 flex flex-col items-center justify-between w-full space-y md:flex-row md:space-y-0 md:space-x-4 p-4 font-bold">
-      <div className='uppercase text-xs'>Creative Developer</div>
-      <Link href="/" className="header-main uppercase text-2xl hover:text-gray-500 transition-colors duration-300">
-        STROY
-      </Link>
-      <div className='uppercase text-xs'>New York</div>
-    </div>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm">
+      <nav className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+        <div className="logo">
+          <h1 className="text-2xl font-bold tracking-tight text-black">
+            STROY
+          </h1>
+        </div>
+
+        <div className="hidden md:flex items-center space-x-12">
+          <a href="#" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
+            Home
+          </a>
+          <a href="#" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
+            Services
+          </a>
+          <a href="#" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
+            Work
+          </a>
+          <a href="#" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
+            About
+          </a>
+
+        </div>
+
+      </nav>
+    </header>
   );
 }
