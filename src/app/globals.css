@@ -14,6 +14,14 @@ body {
   font-family: var(--font-aspekta500);
 }
 
+.font-porlane {
+  font-family: var(--font-porlane);
+  line-height: 0.55; /* Even tighter line height */
+  letter-spacing: 0.3rem; /* Closer letters */
+  margin: 0; /* Remove any default margins */
+  padding: 0; /* Remove any default padding */
+}
+
 .hero-mask-1,
 .hero-mask-2,
 .hero-mask-3,
@@ -210,7 +218,30 @@ body {
   width: 100%;
 }
 
-.marquee-text {
-  font-family: var(--font-aspekta800);
-  font-size: 10svw;
+/* Global CSS for scrolling text */
+.scrolling-text {
+  padding: 0;
+  letter-spacing: 0.5rem;
+  line-height: 0.8; /* Set line height to 1 for better spacing */
+  font-size: 25rem; /* Large base font size */
+  white-space: nowrap;
+  overflow: hidden; /* Hide overflow */
+}
+
+@media screen and (max-width: 991px) {
+  .scrolling-text {
+    font-size: 15rem; /* Adjust size for medium screens */
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .scrolling-text {
+    font-size: 6rem; /* Adjust size for small screens */
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .scrolling-text {
+    font-size: 4rem; /* Adjust size for extra small screens */
+  }
 }

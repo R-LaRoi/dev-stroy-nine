@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Aspekta from "next/font/local";
 import Aspekta800 from "next/font/local";
+import Porlane from "next/font/local";
 import "./globals.css";
 
 const aspekta = Aspekta({
@@ -12,6 +13,12 @@ const aspekta = Aspekta({
 const aspekta800 = Aspekta800({
   src: './Fonts/Aspekta-800.otf',
   variable: "--font-aspekta800",
+});
+
+
+const porlane = Porlane({
+  src: './Fonts/Porlane-Regular.ttf',
+  variable: "--font-porlane",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${aspekta.variable} ${aspekta800.variable}  font-sans antialiased`}
+        className={`${aspekta.variable} ${aspekta800.variable} ${porlane.variable}  font-sans antialiased`}
       >
         {children}
       </body>
