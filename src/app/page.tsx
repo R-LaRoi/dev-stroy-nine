@@ -7,9 +7,8 @@ import Services from "./Components/Services";
 import LoadingPage from './Components/LoadingPage';
 import Mission from './Components/Mission';
 import WorkParallax from './Components/WorkParallax';
-import Connect from './Pages/Connect/page';
 import Version from './Components/versiontwo';
-// import MarqueeConnect from './Components/MarqueeConnect';
+
 
 export default function Home() {
 
@@ -33,11 +32,7 @@ export default function Home() {
             </section>
             <div className="relative mt-20 z-10">
               <WorkParallax />
-
-              {/* <Work showProjects={4} /> */}
-              {/* <SectionMain /> */}
             </div>
-
 
             <Services />
             <div className="pt-32 mt-[10%]">
