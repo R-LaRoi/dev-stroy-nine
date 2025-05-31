@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Footer from "./Footer";
+import { Reveal } from "./Reveal"; // <-- Import Reveal
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function MarqueeHeroSection() {
@@ -11,108 +12,164 @@ export default function MarqueeHeroSection() {
   const videoSectionRef = useRef(null);
   const videoWrapperRef = useRef(null);
   const overlayRef = useRef(null);
+  const nextSectionRef = useRef(null);
 
   useEffect(() => {
-    const marqueeSection = marqueeSectionRef.current;
-    const line1 = marqueeLine1Ref.current;
-    const line2 = marqueeLine2Ref.current;
-
-    gsap.to(line1, {
-      x: () => `-${line1.scrollWidth / 2}px`,
-      ease: "none",
-      scrollTrigger: {
-        trigger: marqueeSection,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-    gsap.to(line2, {
-      x: () => `${line2.scrollWidth / 2}px`,
-      ease: "none",
-      scrollTrigger: {
-        trigger: marqueeSection,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    const videoSection = videoSectionRef.current;
-    const videoWrapper = videoWrapperRef.current;
-    const overlay = overlayRef.current;
-
-    // Initial: relative, centered, small
-    gsap.set(videoWrapper, {
-      position: "relative",
-      left: "50%",
-      top: "0",
-      xPercent: -50,
-      yPercent: 0,
-      width: "44vw",
-      height: "28vw",
-      zIndex: 1,
-    });
-    gsap.set(overlay, { opacity: 0 });
-
-    ScrollTrigger.create({
-      trigger: videoSection,
-      start: "top center",
-      end: "bottom top",
-      scrub: true,
-      pin: false,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        if (progress <= 0) {
-          gsap.set(videoWrapper, {
-            position: "relative",
-            left: "50%",
-            top: "0",
-            xPercent: -50,
-            yPercent: 0,
-            width: "44vw",
-            height: "28vw",
-            zIndex: 1,
-          });
-        } else if (progress > 0 && progress < 1) {
-          gsap.set(videoWrapper, {
-            position: "fixed",
-            left: "50vw",
-            top: "50vh",
-            xPercent: -50,
-            yPercent: -50,
-            width: `${44 + 56 * progress}vw`,
-            height: `${28 + 44 * progress}vw`,
-            zIndex: 30,
-          });
-        } else if (progress >= 1) {
-          gsap.set(videoWrapper, {
-            position: "relative",
-            left: "50%",
-            top: "0",
-            xPercent: -50,
-            yPercent: 0,
-            width: "100vw",
-            height: "72vw",
-            zIndex: 1,
-          });
-        }
-        gsap.to(overlay, {
-          opacity: progress > 0.6 ? 1 : 0,
-          duration: 0.5,
-          overwrite: "auto",
-        });
-      },
-    });
-
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      gsap.killTweensOf([line1, line2, videoWrapper, overlay]);
+      gsap.killTweensOf([
+        marqueeLine1Ref.current,
+        marqueeLine2Ref.current,
+        videoWrapperRef.current,
+        overlayRef.current
+      ]);
     };
   }, []);
 
+  useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (!isMobile) {
+      const marqueeSection = marqueeSectionRef.current;
+      const line1 = marqueeLine1Ref.current;
+      const line2 = marqueeLine2Ref.current;
+
+      if (marqueeSection && line1 && line2) {
+        gsap.to(line1, {
+          x: () => `-${line1.scrollWidth / 2}px`,
+          ease: "none",
+          scrollTrigger: {
+            trigger: marqueeSection,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        });
+        gsap.to(line2, {
+          x: () => `${line2.scrollWidth / 2}px`,
+          ease: "none",
+          scrollTrigger: {
+            trigger: marqueeSection,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        });
+      }
+
+      const videoSection = videoSectionRef.current;
+      const videoWrapper = videoWrapperRef.current;
+      const overlay = overlayRef.current;
+
+      if (videoSection && videoWrapper && overlay) {
+        gsap.set(videoWrapper, {
+          position: "relative",
+          left: "50%",
+          top: "0",
+          xPercent: -50,
+          yPercent: 0,
+          width: "44vw",
+          height: "28vw",
+          zIndex: 1,
+        });
+        gsap.set(overlay, { opacity: 0 });
+      }
+      ScrollTrigger.create({
+        trigger: videoSection,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        pin: false,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const fixedStartProgress = 0.05;
+          const fixedEndProgress = 0.95;
+
+          if (progress < fixedStartProgress) {
+            gsap.to(videoWrapper, {
+              duration: 0.1,
+              position: "relative",
+              left: "50%",
+              top: "0",
+              xPercent: -50,
+              yPercent: 0,
+              width: "44vw",
+              height: "28vw",
+              zIndex: 1,
+              ease: "none",
+              overwrite: true,
+            });
+          } else if (progress >= fixedStartProgress && progress <= fixedEndProgress) {
+            const scaleProgress = (progress - fixedStartProgress) / (fixedEndProgress - fixedStartProgress);
+
+            gsap.to(videoWrapper, {
+              duration: 0.1,
+              position: "fixed",
+              left: "50vw",
+              top: "50vh",
+              xPercent: -50,
+              yPercent: -50,
+              width: `${44 + 56 * scaleProgress}vw`,
+              height: `${28 + 44 * scaleProgress}vw`,
+              zIndex: 60,
+              ease: "none",
+              overwrite: true,
+            });
+          } else {
+            gsap.to(videoWrapper, {
+              duration: 0.1,
+              position: "relative",
+              left: "50%",
+              top: "0",
+              xPercent: -50,
+              yPercent: 0,
+              width: "100vw",
+              height: "72vw",
+              zIndex: 1,
+              ease: "none",
+              overwrite: true,
+            });
+          }
+
+          gsap.to(overlay, {
+            opacity: progress > 0.6 ? 1 : 0,
+            duration: 0.2,
+            overwrite: "auto",
+          });
+        },
+        onEnter: () => {
+          gsap.set(videoWrapper, {
+            position: "fixed",
+            zIndex: 60,
+          });
+        },
+        onLeave: () => {
+          gsap.set(videoWrapper, {
+            position: "relative",
+            zIndex: 1,
+          });
+        },
+        onEnterBack: () => {
+          gsap.set(videoWrapper, {
+            position: "fixed",
+            zIndex: 60,
+          });
+        },
+        onLeaveBack: () => {
+          gsap.set(videoWrapper, {
+            position: "relative",
+            zIndex: 1,
+          });
+        },
+      });
+    }
+
+  }, []);
+
   return (
-    <section className="w-full bg-white overflow-hidden mb-[50%]">
+    <section className="w-full bg-white overflow-hidden">
       {/* Marquee */}
       <div
         ref={marqueeSectionRef}
@@ -125,7 +182,7 @@ export default function MarqueeHeroSection() {
         {/* Line 1 (scrolls left) */}
         <div
           ref={marqueeLine1Ref}
-          className="font-sans text-stone-100"
+          className="font-sans text-black"
           style={{
             fontSize: "7vw",
             lineHeight: 1,
@@ -142,7 +199,7 @@ export default function MarqueeHeroSection() {
         {/* Line 2 (scrolls right) */}
         <div
           ref={marqueeLine2Ref}
-          className="text-stone-100"
+          className="text-black"
           style={{
             fontSize: "7vw",
             lineHeight: 1,
@@ -162,7 +219,7 @@ export default function MarqueeHeroSection() {
       <div
         ref={videoSectionRef}
         className="relative"
-        style={{ minHeight: "110vh" }}
+        style={{ minHeight: "400vh" }}
       >
         <div
           ref={videoWrapperRef}
@@ -172,7 +229,7 @@ export default function MarqueeHeroSection() {
           }}
         >
           <video
-            src="/assets/videos/tam.mp4"
+            src="/assets/videos/t_one.mp4"
             className="w-full h-full object-fill"
             autoPlay
             muted
@@ -194,28 +251,33 @@ export default function MarqueeHeroSection() {
             }}
           >
             <div style={{ maxWidth: "70vw", margin: "0 auto" }}>
-              <h2 className="text-6xl tracking-wider  mb-2" style={{ fontWeight: 400, opacity: 0.93 }}>
-                Ready to transform your digital presence?
-              </h2>
-              <h3 className="text-2xl md:text-3xl leading-tight mb-8" style={{ color: "#fff", opacity: 0.93 }}>
-                Let's build a website that truly reflects your brand and connects with your audience
-              </h3>
-              <div className="flex justify-center mt-4">
-                <button className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors flex items-center gap-2 pointer-events-auto shadow">
-                  Let's Talk
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
-              </div>
+              <Reveal width="100%">
+                <div>
+                  <h2 className="text-6xl tracking-wider  mb-2" style={{ fontWeight: 400, opacity: 0.93 }}>
+                    Ready to transform your digital presence?
+                  </h2>
+                  <h3 className="text-2xl md:text-3xl leading-tight mb-8" style={{ color: "#fff", opacity: 0.93 }}>
+                    Let's build a website that truly reflects your brand and connects with your audience
+                  </h3>
+                  <div className="flex justify-center mt-4">
+                    <button className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors flex items-center gap-2 pointer-events-auto shadow">
+                      Let's Talk
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </Reveal>
             </div>
           </div>
         </div>
-        {/* Spacer to make room for full-zoomed video */}
-        <div style={{ height: "72vw" }}></div>
-
+        <div style={{ height: "100vh" }}></div>
       </div>
-      <Footer />
+      <div ref={nextSectionRef} className="next-section-content" style={{ height: "20vh", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
+        {/* 
+        <h2 className="text-3xl font-bold">Next Section Content Here</h2> */}
+      </div>
     </section>
   );
 }

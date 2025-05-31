@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Contact from './Contact';
 import AnimatedText from './AnimatedText';
 import Image from 'next/image';
 import albumTwo from '../../../public/assets/images/16.png'; // Adjust the path as necessary
+
 gsap.registerPlugin(ScrollTrigger);
 
 interface TextItem {
@@ -20,22 +21,77 @@ export default function Services() {
     { id: '01', text: 'Collaboration' },
   ];
 
+  // GSAP animation refs
+  const titleRef = useRef<HTMLDivElement | null>(null);
+  const imageRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (titleRef.current) {
+      gsap.set(titleRef.current.children, { opacity: 0, y: 75 });
+      gsap.to(titleRef.current.children, {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: 'top 80%',
+          once: true,
+        },
+      });
+    }
+
+    if (imageRef.current) {
+      gsap.set(imageRef.current, { opacity: 0, y: 75 });
+      gsap.to(imageRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        delay: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: 'top 80%',
+          once: true,
+        },
+      });
+    }
+
+    if (sectionRef.current) {
+      gsap.set(sectionRef.current, { opacity: 0, y: 75 });
+      gsap.to(sectionRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        delay: 0.4,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          once: true,
+        },
+      });
+    }
+  }, []);
 
   return (
     <div>
-      <div className="mt-[30%] text-center">
-        <div className="title text-[9vw] uppercase font-bold">
+      <div className="pt-[20%] pb-[20%] text-center">
+        <div className="title text-[9vw] uppercase font-bold" ref={titleRef}>
           {textItems.map((item) => (
             <div key={item.id} className={`_${item.id}`}>
               <div className="tracking-[-0.05em] leading-none">
-                <div className="gradient-text">        <AnimatedText text={item.text} /></div>
+                <div className="gradient-text">
+                  <AnimatedText text={item.text} />
+                </div>
               </div>
             </div>
           ))}
         </div>
-
       </div>
-      <div>
+      <div ref={imageRef}>
         <Image
           src={albumTwo}
           alt="Collage of projects"
@@ -45,8 +101,8 @@ export default function Services() {
           style={{ objectFit: "cover" }}
         />
       </div>
-      <section className="py-24 bg-white"> {/* Adjust padding/background as needed */}
-        <div className="max-w-7xl mx-auto px-6"> {/* Max width and horizontal padding for content */}
+      <section className="py-24 bg-white" ref={sectionRef}>
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Column */}
             <div>
@@ -79,7 +135,7 @@ export default function Services() {
 
             {/* Right Column - List of Items */}
             <div>
-              <ul className="space-y-6"> {/* Adjust spacing between list items */}
+              <ul className="space-y-6">
                 <li className="border-b border-gray-200 pb-2 text-lg text-black">Custom Web Development</li>
                 <li className="border-b border-gray-200 pb-2 text-lg text-black">Digital Brand Presence</li>
                 <li className="border-b border-gray-200 pb-2 text-lg text-black">User Experience (UX) Optimization</li>
@@ -90,12 +146,6 @@ export default function Services() {
           </div>
         </div>
       </section>
-
-
-
-
     </div>
-
   );
 };
-

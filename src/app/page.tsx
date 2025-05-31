@@ -9,7 +9,7 @@ import LoadingPage from './Components/LoadingPage';
 import Mission from './Components/Mission';
 import WorkParallax from './Components/WorkParallax';
 import Connect from './Pages/Connect/page';
-import ScrollMarqueeVideo from './Components/ScrollMarqueeVideo';
+
 import MarqueeConnect from './Components/MarqueeConnect';
 
 export default function Home() {
@@ -39,15 +39,15 @@ export default function Home() {
               {/* <SectionMain /> */}
             </div>
 
-            <div className="pt-32">
-              {/* <MarqueeImages /> */}
-            </div>
+
             <Services />
-            <MarqueeConnect />
-            <Footer />
-
+            <div className="pt-32 mt-[10%]">
+              <MarqueeConnect />
+            </div>
           </div>
-
+          <div>
+            <Footer />
+          </div>
         </>) :
         (<LoadingPage />)
       }

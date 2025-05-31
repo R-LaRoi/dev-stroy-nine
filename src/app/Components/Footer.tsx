@@ -25,8 +25,8 @@ export default function Footer() {
   // }, []);
 
   return (
-    <footer className="h-full py-16 px-8 sm:px-12 lg:px-24 font-inter text-stone-700" >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+    <footer className="h-full relative z-50 bg-white sm:px-12 lg:px-24 font-inter" >
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 pb-[30%]">
         {/* Left Column: Brand Name, Description, and Social Icons */}
         <div className="flex flex-col space-y-8"> {/* Increased space between text block and social icons */}
           {/* Brand Name and Description */}

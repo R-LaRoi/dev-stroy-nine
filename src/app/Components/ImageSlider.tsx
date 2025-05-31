@@ -9,11 +9,13 @@ export default function ImageSlider() {
   const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
 
   const images = [
-    "https://github.com/user-attachments/assets/3d9eadd1-3235-41d0-a96c-32799452c6c5",
-    "https://github.com/user-attachments/assets/a41507ba-d35e-429c-a892-69c30eaf3aac",
-    "https://github.com/user-attachments/assets/f4f90515-a796-4b24-8ef2-d87e19d94f3d",
-    "https://github.com/user-attachments/assets/bdb55176-afca-4462-bca4-0b3a4333e479",
-    "https://github.com/user-attachments/assets/9dd9e888-e903-45f0-9ade-4b0f886fb691",
+    "https://github.com/user-attachments/assets/e0481bf5-9161-4324-a8e7-a6b0a27e9cd6",
+    "https://github.com/user-attachments/assets/3f44759e-8cd9-4085-a982-a3f027237617",
+    "https://github.com/user-attachments/assets/0b7f1c26-3682-4d8c-bcaf-2debb3b205e5",
+    "https://github.com/user-attachments/assets/2f0b5fc8-d787-475f-874a-36a0301408d4",
+    "https://github.com/user-attachments/assets/a15de092-f53d-4654-807e-8e1608755e2b",
+    "https://github.com/user-attachments/assets/c002e817-624f-4ae9-8dd6-308c2447e683",
+    "https://github.com/user-attachments/assets/789397b4-ba67-4c05-8139-ac3ab62f5a67",
     "https://github.com/user-attachments/assets/09359235-9d6a-405b-bc1f-4fac5408172d"
   ];
 

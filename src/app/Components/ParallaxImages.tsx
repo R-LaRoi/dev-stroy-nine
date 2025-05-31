@@ -13,7 +13,7 @@ import atelierImage from "../../../public/assets/images/11.png";
 gsap.registerPlugin(ScrollTrigger);
 
 const contentSlides = [
-  { id: 'slide-1', imageSrc: styleImage, text: 'EDITORIALS' },
+  { id: 'slide-1', imageSrc: styleImage, text: 'TAMIKA DUNCAN' },
   { id: 'slide-2', imageSrc: tamikaImage, text: 'TAMIKA DUNCAN' },
   { id: 'slide-3', imageSrc: jmpnImage, text: 'FIT DAILY' },
   { id: 'slide-4', imageSrc: atelierImage, text: 'ATELIER 718' },
@@ -137,7 +137,7 @@ export default function ImageChangeOnScroll() {
         {contentSlides.map((slide, index) => (
           <h2
             key={slide.id + '-text'}
-            className="absolute z-20 text-white text-center text-7xl lg:text-7xl font-extrabold uppercase leading-none drop-shadow-lg"
+            className="absolute z-20 text-white text-center text-7xl lg:text-8xl  uppercase leading-none drop-shadow-lg"
             ref={el => {
               if (el) textRefs.current[index] = el;
             }}
