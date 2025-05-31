@@ -3,14 +3,13 @@ import { useState, useEffect } from 'react';
 import Header from "./Components/Header";
 import Footer from "./Components/Footer"
 import HeroText from "./Components/HeroText";
-
 import Services from "./Components/Services";
 import LoadingPage from './Components/LoadingPage';
 import Mission from './Components/Mission';
 import WorkParallax from './Components/WorkParallax';
 import Connect from './Pages/Connect/page';
-
-import MarqueeConnect from './Components/MarqueeConnect';
+import Version from './Components/versiontwo';
+// import MarqueeConnect from './Components/MarqueeConnect';
 
 export default function Home() {
 
@@ -42,7 +41,7 @@ export default function Home() {
 
             <Services />
             <div className="pt-32 mt-[10%]">
-              <MarqueeConnect />
+              <Version />
             </div>
           </div>
           <div>
