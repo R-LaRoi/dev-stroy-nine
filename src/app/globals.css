@@ -82,7 +82,10 @@ body {
   margin-top: 8rem;
 }
 
-.next-section,
+.next-section {
+  background-color: white;
+}
+
 .git-circle {
   background-color: #fe1034;
 }

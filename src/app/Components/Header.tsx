@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 import React, { useRef, useEffect } from 'react';
 
 
@@ -13,22 +14,28 @@ export default function Header() {
           </h1>
         </div>
 
+
+
         <div className="hidden md:flex items-center space-x-12">
-          <a href="#" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-            Home
-          </a>
-          <a href="#" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-            Services
-          </a>
-          <a href="#" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-            Work
-          </a>
-          <a href="#" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-            About
-          </a>
-
+          <Link
+            href="/Pages/Work"
+            className=" hover:tracking-wider hover:text-zinc-700 transition-all duration-300 text-sm font-medium text-gray-700 hover:text-black transition-colors"
+          >
+            WORK
+          </Link>
+          <Link
+            href="/Pages/Services"
+            className="hover:tracking-wider hover:text-zinc-700 transition-all duration-300 text-sm font-medium text-gray-700 hover:text-black transition-colors"
+          >
+            SERVICES
+          </Link>
+          <Link
+            href="/Pages/Connect"
+            className="hover:tracking-wider hover:text-zinc-700 transition-all duration-300 text-sm font-medium text-gray-700 hover:text-black transition-colors"
+          >
+            CONNECT
+          </Link>
         </div>
-
       </nav>
     </header>
   );

@@ -237,7 +237,7 @@ export default function MarqueeHeroSection() {
             playsInline
             style={{ borderRadius: 0 }}
           />
-          {/* Overlay */}
+
           <div
             ref={overlayRef}
             className="absolute inset-0 flex flex-col items-center justify-center text-center p-12 text-white z-20"
@@ -275,8 +275,7 @@ export default function MarqueeHeroSection() {
         <div style={{ height: "100vh" }}></div>
       </div>
       <div ref={nextSectionRef} className="next-section-content" style={{ height: "20vh", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
-        {/* 
-        <h2 className="text-3xl font-bold">Next Section Content Here</h2> */}
+
       </div>
     </section>
   );

@@ -260,15 +260,16 @@ export default function ZoomingHeroVideo() {
               marginBottom: isMobile ? "0.7rem" : "1.2rem",
               fontWeight: 400,
             }}>
-              ENSURING YOUR VISION
+              Ready to transform your digital presence?
             </div>
             <h1 style={{
-              fontSize: isMobile ? "2rem" : "2.7rem",
-              fontWeight: 700,
+              fontSize: isMobile ? "2rem" : "3rem",
+              fontWeight: 500,
               marginBottom: isMobile ? "1.2rem" : "2rem",
-              textShadow: "0 2px 16px rgba(0,0,0,0.32)"
+              textShadow: "0 2px 16px rgba(0,0,0,0.32)",
+              lineHeight: isMobile ? "1" : "1.2",
             }}>
-              Let us transform your concepts into tangible<br />and impactful realities.
+              Let's build a website that truly reflects your brand <br /> and connects with your audience.
             </h1>
             <div style={{
               display: "flex",
@@ -277,20 +278,7 @@ export default function ZoomingHeroVideo() {
               justifyContent: "center",
               flexWrap: "wrap"
             }}>
-              <button
-                style={{
-                  fontSize: "1rem",
-                  background: "#fff",
-                  color: "#222",
-                  border: "none",
-                  borderRadius: "2rem",
-                  padding: isMobile ? "0.7rem 1.8rem" : "0.8rem 2rem",
-                  fontWeight: 600,
-                  cursor: "pointer"
-                }}
-              >
-                Buy Template
-              </button>
+
               <button
                 style={{
                   fontSize: "1rem",

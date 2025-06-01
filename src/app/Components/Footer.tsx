@@ -1,43 +1,43 @@
-'use client'
-import React, { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import Link from 'next/link';
 
-// Import Font Awesome components and specific icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'; // Brand icons
-import { faPalette } from '@fortawesome/free-solid-svg-icons'; // Solid icons (like a palette)
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faPalette, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 export default function Footer() {
-  // const footerRef = useRef(null);
-
-  // useEffect(() => {
-  //   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-  //   tl.fromTo(footerRef.current,
-  //     { y: 50, opacity: 0 },
-  //     { y: 0, opacity: 1, duration: 1 }
-  //   );
-
-  //   return () => {
-  //     tl.kill();
-  //   };
-  // }, []);
-
   return (
-    <footer className="h-full relative z-50 bg-white sm:px-12 lg:px-24 font-inter" >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 pb-[30%]">
-        {/* Left Column: Brand Name, Description, and Social Icons */}
-        <div className="flex flex-col space-y-8"> {/* Increased space between text block and social icons */}
-          {/* Brand Name and Description */}
-          <div className="flex flex-col space-y-4">
-            <h2 className="text-xl font-semibold text-stone-800">STROY/</h2>
-            <p className="text-sm leading-relaxed max-w-xs">
-              Empowering brands by delivering innovative web design that goes beyond aesthetics, building strategic online presences that connect and convert.
-            </p>
+    <footer className="bg-white border-t border-gray-200 pt-10 pb-16 px-4 sm:px-8 lg:px-20 font-inter text-gray-800">
+      {/* TOP ROW */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-gray-200">
+        {/* OFFICE */}
+        <div>
+          <div className="uppercase text-xs text-gray-500 font-semibold mb-2">Loaction</div>
+          <div className="text-sm leading-relaxed mb-2">
+            <br />New York, NY<br />United States
           </div>
 
-          {/* Social Icons - now part of the left column's content flow */}
+        </div>
+
+
+        {/* EMAIL US */}
+        <div>
+          <div className="uppercase text-xs text-gray-500 font-semibold mb-2">Email Us</div>
+          <a
+            href="mailto:business@rowena.com"
+            className="inline-flex items-center text-blue-700 font-medium text-sm hover:underline"
+          >
+            rachel@stroy.dev <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-1" size="xs" />
+          </a>
+        </div>
+      </div>
+
+      {/* BOTTOM ROW */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 pt-10">
+        {/* BRAND */}
+        <div>
+          <h2 className="text-xl font-serif font-medium tracking-tight mb-2">LOGO</h2>
+          <p className="text-sm text-gray-600 mb-6">
+            Empowering brands by delivering innovative web design that goes beyond aesthetics, building strategic online presences that connect and convert.
+          </p>
           <div className="flex items-center space-x-4">
             <a
               href="https://github.com" // Replace with your GitHub URL
@@ -69,26 +69,20 @@ export default function Footer() {
             </a>
           </div>
         </div>
-
-        {/* Right Column: Utility Links */}
-        <div className="flex flex-col space-y-4 md:justify-self-end"> {/* Added justify-self-end to push to right */}
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-stone-600">Utility</h3>
-          <ul className="space-y-2">
-            <li>
-              <a href="#services" className="text-stone-700 hover:text-stone-900 transition-colors duration-200 text-base">Services</a>
-            </li>
-            <li>
-              <a href="#work" className="text-stone-700 hover:text-stone-900 transition-colors duration-200 text-base">Work</a>
-            </li>
-            <li>
-              <a href="#contact" className="text-stone-700 hover:text-stone-900 transition-colors duration-200 text-base">Contact</a>
-            </li>
-            <li>
-              <a href="#home" className="text-stone-700 hover:text-stone-900 transition-colors duration-200 text-base">Home</a>
-            </li>
-          </ul>
-        </div>
       </div>
-    </footer >
+
+
+      {/* UTILITY */}
+      <div>
+        <div className="uppercase text-xs text-gray-500 font-semibold mb-2">Utility</div>
+        <ul className="space-y-1 text-sm">
+          <li><a href="#" className="hover:underline">License</a></li>
+          <li><a href="#" className="hover:underline">Style Guide</a></li>
+          <li><a href="#" className="hover:underline">Changelog</a></li>
+        </ul>
+      </div>
+
+    </footer>
+
   );
 }

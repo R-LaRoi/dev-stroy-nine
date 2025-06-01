@@ -106,12 +106,12 @@ export default function Services() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Column */}
             <div>
-              {/* Main Heading and Arrow */}
+
               <div className="flex items-center justify-between mb-8">
                 <h2 className="text-5xl text-black">
                   Services
                 </h2>
-                {/* Arrow icon - Using a simple SVG for demonstration */}
+
                 <svg
                   className="w-8 h-8 text-black"
                   fill="none"
@@ -127,13 +127,13 @@ export default function Services() {
                   ></path>
                 </svg>
               </div>
-              {/* Descriptive Paragraph */}
+
               <p className="text-lg text-gray-700 leading-relaxed">
                 Starting a project from scratch can feel daunting; I understand that, thanks to my background as both an artist and a developer. I know the initial hurdles of gathering resources and forming key relationships. But through every experience, I've seen that the development journey is rarely linear; it's a vibrant path where growth and innovation consistently emerge.
               </p>
             </div>
 
-            {/* Right Column - List of Items */}
+
             <div>
               <ul className="space-y-6">
                 <li className="border-b border-gray-200 pb-2 text-lg text-black">Custom Web Development</li>
