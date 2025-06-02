@@ -1,8 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { projectItems } from '../Data/projectData'
-import Link from 'next/link'
 import ParallaxImages from './ParallaxImages';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -51,12 +49,9 @@ export default function WorkParallax() {
   return (
     <div ref={sectionRef}>
       <div className="grid lg:grid-cols-2 gap-10 p-8 items-start mt-[70%]">
-        {/* Left column - About us label */}
         <div ref={leftRef}>
           <p className="text-sm text-gray-500">Work</p>
         </div>
-
-        {/* Right column - Main headline and content */}
         <div ref={rightRef}>
           <h1 className=" text-7xl">
             Let's Build Something Great

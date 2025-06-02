@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import albumTwo from '../../../public/assets/images/16.png'; // Adjust the path as necessary
+import AnimatedText from './AnimatedText';
 
 gsap.registerPlugin(ScrollTrigger);
 
