@@ -63,7 +63,7 @@ export default function ZoomingHeroVideo() {
       yPercent: -50,
       width: isMobile ? "80vw" : "48vw",
       height: isMobile ? "48vw" : "27vw",
-      borderRadius: 0, // No border radius
+      borderRadius: 0,
       zIndex: 2,
       overflow: "hidden",
       boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
@@ -89,7 +89,7 @@ export default function ZoomingHeroVideo() {
             yPercent: -50,
             width: `${isMobile ? 80 + 20 * p : 48 + 52 * p}vw`,
             height: `${isMobile ? 48 + 52 * p : 27 + 73 * p}vw`,
-            borderRadius: 0, // No border radius during zoom
+            borderRadius: 0,
             zIndex: 2,
             boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
           });
@@ -103,7 +103,7 @@ export default function ZoomingHeroVideo() {
             yPercent: 0,
             width: "100vw",
             height: "100vh",
-            borderRadius: 0, // No border radius at full
+            borderRadius: 0,
             zIndex: 1,
             boxShadow: "none",
           });

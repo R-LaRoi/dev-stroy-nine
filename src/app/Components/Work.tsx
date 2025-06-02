@@ -8,15 +8,15 @@ import Link from 'next/link'
 gsap.registerPlugin(ScrollTrigger);
 
 // Marquee Component
-const Marquee = ({ text, speed = 0.5 }) => {
+const Marquee = ({ text, speed = 0.5 }: { text: string, speed?: number }) => {
   const marqueeRef = useRef(null);
 
   useEffect(() => {
-    const marqueeElement = marqueeRef.current;
+    const marqueeElement = marqueeRef.current as HTMLElement | null;
     if (!marqueeElement) return;
 
     // Duplicate the content to create a seamless loop
-    const content = marqueeElement.children[0];
+    const content = marqueeElement.children[0] as HTMLElement;
     const duplicatedContent = content.cloneNode(true);
     marqueeElement.appendChild(duplicatedContent);
 

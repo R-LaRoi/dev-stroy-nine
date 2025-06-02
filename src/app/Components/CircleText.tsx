@@ -19,7 +19,7 @@ export default function MarqueeHeroSection() {
 
 
     gsap.to(line1, {
-      x: () => `-${line1.scrollWidth / 2}px`,
+      x: () => `-${(line1 as unknown as HTMLElement).scrollWidth / 2}px`,
       ease: "none",
       scrollTrigger: {
         trigger: marqueeSection,
@@ -30,7 +30,7 @@ export default function MarqueeHeroSection() {
     });
 
     gsap.fromTo(line2,
-      { x: () => `-${line2.scrollWidth / 2}px` },
+      { x: () => `-${(line2 as unknown as HTMLElement).scrollWidth / 2}px` },
       {
         x: () => `0px`,
         ease: "none",

@@ -38,10 +38,11 @@ export const WorkFooter = ({
   buttonText = "",
   buttonLink = "",
 }) => {
-  const imgRefs = useRef([]);
+  // CORRECTED LINE: Type useRef to indicate an array of HTMLDivElement or null
+  const imgRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    imgRefs.current.forEach((img, i) => {
+    imgRefs.current.forEach((img) => { // Removed `i` as it's not used here
       if (!img) return; // Ensure the ref is not null
       gsap.fromTo(
         img,
@@ -58,6 +59,12 @@ export const WorkFooter = ({
         }
       );
     });
+
+    // Cleanup function for ScrollTriggers
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+
   }, []);
 
   return (
@@ -66,7 +73,10 @@ export const WorkFooter = ({
       {images.map((image, i) => (
         <div
           key={i}
-          ref={(el) => (imgRefs.current[i] = el)}
+          // Corrected ref assignment: Directly assign el, TypeScript now knows imgRefs.current[i] can be HTMLDivElement | null
+          ref={(el) => {
+            imgRefs.current[i] = el;
+          }}
           className={`absolute ${image.className} z-0 pointer-events-none`}
         >
           <img
