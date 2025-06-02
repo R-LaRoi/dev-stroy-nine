@@ -1,8 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Contact from './Contact';
-import AnimatedText from './AnimatedText';
 import Image from 'next/image';
 import albumTwo from '../../../public/assets/images/16.png'; // Adjust the path as necessary
 

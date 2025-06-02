@@ -2,11 +2,8 @@
 import { useRef, useEffect } from 'react'
 import Footer from '@/app/Components/Footer'
 import Header from '@/app/Components/Header'
-import ServiceItem from '@/app/Components/ServiceItems'
-import AwesomeIcons from '@/app/Components/AwesomeIcons'
 import AnimatedText from '@/app/Components/AnimatedText'
 import gsap from 'gsap';
-import Image from 'next/image'
 import { WorkFooter } from '@/app/Components/WorkFooter';
 interface TextItem {
   id: string;

@@ -118,8 +118,7 @@ export default function ImageChangeOnScroll() {
             }}
             style={{ opacity: 0, zIndex: index, transform: 'translateZ(0)' }}
           >
-            {/* THIS IS THE KEY CHANGE: Removed specific w/h/max-w/max-h.
-                The Image fill will now rely on its parent (w-full h-full) which is already full viewport. */}
+
             <div className="relative w-full h-full">
               <Image
                 src={slide.imageSrc}

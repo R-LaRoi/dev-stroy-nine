@@ -6,7 +6,6 @@ import Header from '@/app/Components/Header'
 import FormConnect from '@/app/Components/FormConnect'
 
 
-
 export default function Connect() {
   return (
     <>
@@ -14,11 +13,10 @@ export default function Connect() {
 
 
       <div>
-        <CircleText text="Get In Touch • Get In Touch •"
-          backgroundColor="#fe1034"
-          textColor="black"
-          rotationDuration={15}
-          maxRadius={200} />
+        <>
+          <CircleText />
+
+        </>
       </div>
 
       <div className="flex flex-col items-center p-4 md:p-[8.5rem] ">
