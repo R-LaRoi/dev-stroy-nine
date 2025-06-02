@@ -34,9 +34,12 @@ const Marquee = ({ text, speed = 0.5 }) => {
 
   return (
     <div className="relative w-full overflow-hidden whitespace-nowrap py-8 sm:py-12 md:py-16 lg:pt-[20%] lg:pb-[10%] pointer-events-none ">
-      <div ref={marqueeRef} className="inline-block">
+      <div ref={marqueeRef} className="inline-block" style={{
+        paddingTop: "10vh",
+        paddingBottom: "4vw",
+      }}>
 
-        <span className="text-[15rem]  text-stone-100 uppercase mx-12  select-none font-porlane leading-tight ">
+        <span className="text-[25vw]  text-stone-100 uppercase mx-12  select-none font-porlane leading-tight ">
           {text}
         </span>
 
@@ -83,14 +86,14 @@ export default function Work({ showProjects }: WorkProps) {
       <div>
 
         <div className="next-section -mt-32">
-          <Marquee text=" STROY STROY STROY  Design Beyond Limits " speed={1} />
+          <Marquee text=" Design Beyond Limits  Design Beyond Limits " speed={1} />
           <div className="px-12">
             <div className="max-w-5xl mx-auto border-b border-stone-200"></div>
           </div>
           <div className="p-8 pb-32">
             <p className="text-md text-black mb-6">Work</p>
             <div className="flex justify-between items-end">
-              <h1 className=" text-5xl leading-none md:text-5xl md:leading-tight lg:text-6xl lg:leading-none  max-w-5xl ">
+              <h1 className=" text-5xl p-16 leading-none md:text-5xl md:leading-tight lg:text-[6vw] lg:leading-none  max-w-5xl ">
                 From Concept To <br /> Impactful User <br />Experiences.
 
               </h1>
@@ -130,7 +133,12 @@ export default function Work({ showProjects }: WorkProps) {
             ))}
           </ul>
           <div className='pb-[40%]'></div>
-          <WorkFooter />
+          <WorkFooter
+            spanText="DISCOVER OUR SERVICES"
+            h1Text="Explore how we can bring your ideas to life."
+            buttonText="View Services"
+            buttonLink="./Services"
+          />
         </div>
       </div>
     </div>

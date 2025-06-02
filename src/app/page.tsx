@@ -8,6 +8,7 @@ import LoadingPage from './Components/LoadingPage';
 import Mission from './Components/Mission';
 import WorkParallax from './Components/WorkParallax';
 import Version from './Components/versiontwo';
+import { WorkFooter } from './Components/WorkFooter';
 
 
 export default function Home() {
@@ -35,12 +36,20 @@ export default function Home() {
             </div>
 
             <Services />
+            <WorkFooter
+              spanText="Define and build your digital presence."
+              h1Text=" Transforming complex design challenges into intuitive, user-friendly solutions, empowering your core focus."
+
+            />
+
             <div className="pt-32 mt-[10%]">
               <Version />
+
             </div>
+
           </div>
           <div>
-            <Footer />
+
           </div>
         </>) :
         (<LoadingPage />)

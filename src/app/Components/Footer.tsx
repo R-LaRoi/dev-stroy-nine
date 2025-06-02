@@ -2,10 +2,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faPalette, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 pt-10 pb-16 px-4 sm:px-8 lg:px-20 font-inter text-gray-800">
+    <footer className="bg-stone-100 border-t  pt-10 pb-16 px-4 sm:px-8 lg:px-20 font-inter text-gray-800">
       {/* TOP ROW */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-gray-200">
         {/* OFFICE */}
@@ -34,8 +35,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 pt-10">
         {/* BRAND */}
         <div>
-          <h2 className="text-xl font-serif font-medium tracking-tight mb-2">LOGO</h2>
-          <p className="text-sm text-gray-600 mb-6">
+          <h2 className="text-4xl font-serif font-medium font-porlane tracking-tight mb-2 ">STROY</h2>
+          <p className="text-sm text-gray-600 mb-6 py-4">
             Empowering brands by delivering innovative web design that goes beyond aesthetics, building strategic online presences that connect and convert.
           </p>
           <div className="flex items-center space-x-4">
@@ -74,11 +75,23 @@ export default function Footer() {
 
       {/* UTILITY */}
       <div>
-        <div className="uppercase text-xs text-gray-500 font-semibold mb-2">Utility</div>
+        <div className="uppercase text-xs text-gray-500 font-semibold mb-2">Navigation</div>
         <ul className="space-y-1 text-sm">
-          <li><a href="#" className="hover:underline">License</a></li>
-          <li><a href="#" className="hover:underline">Style Guide</a></li>
-          <li><a href="#" className="hover:underline">Changelog</a></li>
+          <li>
+            <Link href="/Pages/Work" className="hover:underline">
+              WORK
+            </Link>
+          </li>
+          <li>
+            <Link href="/Pages/Services" className="hover:underline">
+              SERVICES
+            </Link>
+          </li>
+          <li>
+            <Link href="/Pages/Connect" className="hover:underline">
+              CONNECT
+            </Link>
+          </li>
         </ul>
       </div>
 

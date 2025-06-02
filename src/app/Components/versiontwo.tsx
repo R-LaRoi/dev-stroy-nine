@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Footer from "./Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -296,8 +297,8 @@ export default function ZoomingHeroVideo() {
             </div>
           </div>
         </div>
+
       </section>
-      {/* NEXT SECTION: Only appears after video is fully zoomed */}
       <div
         style={{
           minHeight: "100vh",
@@ -309,7 +310,8 @@ export default function ZoomingHeroVideo() {
           justifyContent: "center"
         }}
       >
-        <h1 style={{ fontSize: "2.5rem", color: "#222" }}>Next Section — Always Visible After Hero</h1>
+
+        <Footer />
       </div>
     </>
   );

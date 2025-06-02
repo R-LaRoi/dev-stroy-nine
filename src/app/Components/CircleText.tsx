@@ -17,7 +17,7 @@ export default function MarqueeHeroSection() {
     const line1 = marqueeLine1Ref.current;
     const line2 = marqueeLine2Ref.current;
 
-    // Fixed marquee animation - smoother scroll-based movement
+
     gsap.to(line1, {
       x: () => `-${line1.scrollWidth / 2}px`,
       ease: "none",
@@ -25,20 +25,23 @@ export default function MarqueeHeroSection() {
         trigger: marqueeSection,
         start: "top bottom",
         end: "bottom top",
-        scrub: 1, // Changed from true to 1 for smoother animation
+        scrub: 1,
       },
     });
 
-    gsap.to(line2, {
-      x: () => `${line2.scrollWidth / 2}px`,
-      ease: "none",
-      scrollTrigger: {
-        trigger: marqueeSection,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1, // Changed from true to 1 for smoother animation
-      },
-    });
+    gsap.fromTo(line2,
+      { x: () => `-${line2.scrollWidth / 2}px` },
+      {
+        x: () => `0px`,
+        ease: "none",
+        scrollTrigger: {
+          trigger: marqueeSection,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+      }
+    );
 
     const videoSection = videoSectionRef.current;
     const videoWrapper = videoWrapperRef.current;
@@ -62,7 +65,7 @@ export default function MarqueeHeroSection() {
       trigger: videoSection,
       start: "top center",
       end: "bottom top",
-      scrub: 1, // Smoother scrubbing
+      scrub: 1,
       pin: false,
       onUpdate: (self) => {
         const progress = self.progress;
@@ -81,7 +84,7 @@ export default function MarqueeHeroSection() {
             ease: "none"
           });
         } else if (progress > 0 && progress < 1) {
-          // Smooth interpolation during transition
+
           const widthProgress = 44 + 56 * progress;
           const heightProgress = 28 + 44 * progress;
 
@@ -135,7 +138,7 @@ export default function MarqueeHeroSection() {
         ref={marqueeSectionRef}
         className="w-full"
         style={{
-          paddingTop: "6vw",
+          paddingTop: "30vh",
           paddingBottom: "4vw",
         }}
       >
@@ -144,7 +147,7 @@ export default function MarqueeHeroSection() {
           ref={marqueeLine1Ref}
           className="font-sans text-black"
           style={{
-            fontSize: "7vw",
+            fontSize: "12vw",
             lineHeight: 1,
             whiteSpace: "nowrap",
             marginBottom: "0vw",
@@ -161,7 +164,7 @@ export default function MarqueeHeroSection() {
           ref={marqueeLine2Ref}
           className="text-black"
           style={{
-            fontSize: "7vw",
+            fontSize: "12vw",
             lineHeight: 1,
             whiteSpace: "nowrap",
             marginTop: "-0.5vw",
@@ -171,66 +174,11 @@ export default function MarqueeHeroSection() {
           }}
         >
           <span style={{ marginRight: "4vw" }}>Creating Brand Precision</span>
-          <span style={{ marginRight: "4vw" }}>Creating Brand Precision</span>
+          <span style={{ marginRight: "0vw" }}>Creating Brand Precision</span>
         </div>
       </div>
 
-      {/* Video Section */}
-      <div
-        ref={videoSectionRef}
-        className="relative"
-        style={{ minHeight: "110vh" }}
-      >
-        <div
-          ref={videoWrapperRef}
-          style={{
-            aspectRatio: "16/9",
-            pointerEvents: "none",
-          }}
-        >
-          <video
-            src="/assets/videos/t_one.mp4"
-            className="w-full h-full object-fill"
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{ borderRadius: 0 }}
-          />
-          {/* Overlay */}
-          <div
-            ref={overlayRef}
-            className="absolute inset-0 flex flex-col items-center justify-center text-center p-12 text-white z-20"
-            style={{
-              pointerEvents: "none",
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <div style={{ maxWidth: "70vw", margin: "0 auto" }}>
-              <h2 className="text-6xl tracking-wider  mb-2" style={{ fontWeight: 400, opacity: 0.93 }}>
-                Ready to transform your digital presence?
-              </h2>
-              <h3 className="text-2xl md:text-3xl leading-tight mb-8" style={{ color: "#fff", opacity: 0.93 }}>
-                Let's build a website that truly reflects your brand and connects with your audience
-              </h3>
-              <div className="flex justify-center mt-4">
-                <button className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors flex items-center gap-2 pointer-events-auto shadow">
-                  Let's Talk
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Spacer to make room for full-zoomed video */}
-        <div style={{ height: "72vw" }}></div>
-      </div>
+
       <div style={{ height: "28vw" }}></div>
     </section>
   );

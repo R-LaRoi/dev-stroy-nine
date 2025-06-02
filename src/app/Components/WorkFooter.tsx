@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -30,20 +29,25 @@ const images = [
     src: "./../assets/images/6.png",
     alt: "Interior shelves",
     className: "left-[28%] top-[70%] w-36 h-36",
-  }
+  },
 ];
 
-export const WorkFooter = () => {
+export const WorkFooter = ({
+  spanText = "", // Default value
+  h1Text = "", // Default value
+  buttonText = "",
+  buttonLink = "",
+}) => {
   const imgRefs = useRef([]);
 
   useEffect(() => {
     imgRefs.current.forEach((img, i) => {
-      if (!img) return;
+      if (!img) return; // Ensure the ref is not null
       gsap.fromTo(
         img,
-        { y: 174 }, // 30% more than 80px
+        { y: 174 },
         {
-          y: -256, // 30% more than 120px
+          y: -256,
           ease: "none",
           scrollTrigger: {
             trigger: img,
@@ -62,7 +66,7 @@ export const WorkFooter = () => {
       {images.map((image, i) => (
         <div
           key={i}
-          ref={el => (imgRefs.current[i] = el)}
+          ref={(el) => (imgRefs.current[i] = el)}
           className={`absolute ${image.className} z-0 pointer-events-none`}
         >
           <img
@@ -78,20 +82,18 @@ export const WorkFooter = () => {
       <div className="relative flex flex-col items-center z-10 pointer-events-auto">
         <div className="mb-6">
           <span className="block text-base md:text-lg font-normal text-[#75757B] tracking-wider text-center">
-            ENSURING YOUR VISION
+            {spanText}
           </span>
         </div>
         <h1 className="text-[clamp(2.5rem,5vw,5rem)] font-medium leading-none text-black text-center mb-8 max-w-5xl ">
-          Ready to shape your vision into engaging experiences.
+          {h1Text}
         </h1>
         <div className="flex gap-4 justify-center mt-2">
-
           <a
-            href="/contact"
+            href={buttonLink}
             className="px-8 py-3 bg-black border border-black rounded-full text-lg font-normal text-white flex items-center gap-2 shadow-none transition hover:bg-neutral-900"
           >
-            Let's Talk
-
+            {buttonText}
           </a>
         </div>
       </div>
