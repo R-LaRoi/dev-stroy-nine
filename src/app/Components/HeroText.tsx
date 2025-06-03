@@ -1,86 +1,86 @@
 "use client"
-import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import ImageSlider from "./ImageSlider";
 
+const TEXT_REPETITIONS = 12;
+const SCROLL_DURATION = 40;
 
+function ScrollingTextColumn({ text, ref }: { text: string; ref: React.RefObject<HTMLDivElement | null> }) {
+  const textItems = Array.from({ length: TEXT_REPETITIONS }, (_, i) => (
+    <div className="scrolling-text text-stone-100 text-8xl leading-none" key={i}>
+      {text}
+    </div>
+  ));
+
+  return (
+    <div
+      ref={ref}
+      className="flex flex-col text-stone-100 whitespace-nowrap"
+    >
+      {textItems}
+      {textItems}
+    </div>
+  );
+}
 
 export default function HeroText() {
-  const heroTextRef = useRef<HTMLDivElement>(null);
-  const [showHeroText, setShowHeroText] = useState(false);
+  const leftTextRef = useRef(null);
+  const rightTextRef = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowHeroText(true);
-    }, 1000);
+    if (leftTextRef.current && rightTextRef.current) {
+      const singleBlockHeight = (leftTextRef.current as HTMLDivElement).offsetHeight / 2;
 
-    return () => clearTimeout(timer);
-  }, []);
+      gsap.to(leftTextRef.current, {
+        y: -singleBlockHeight,
+        duration: SCROLL_DURATION,
+        ease: "none",
+        repeat: -1,
+        overwrite: "auto",
+        onRepeat: () => {
+          gsap.set(leftTextRef.current, { y: 0 });
+        }
+      });
 
-  useEffect(() => {
-    if (showHeroText && heroTextRef.current) {
-      gsap.fromTo(heroTextRef.current,
-        { y: 100, opacity: 0 },
+      gsap.fromTo(rightTextRef.current,
+        { y: -singleBlockHeight },
         {
           y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power4.out"
+          duration: SCROLL_DURATION,
+          ease: "none",
+          repeat: -1,
+          overwrite: "auto",
+          onRepeat: () => {
+            gsap.set(rightTextRef.current, { y: -singleBlockHeight });
+          }
         }
       );
     }
-  }, [showHeroText]);
-
-  useEffect(() => {
-    const lines = gsap.utils.toArray<HTMLElement>('.hero-sub-text > div');
-
-    lines.forEach((line, index) => {
-      gsap.fromTo(line,
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: line,
-            start: "top 80%",
-            once: true
-          },
-          delay: 0.2 * index
-        }
-      );
-    });
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      gsap.killTweensOf([leftTextRef.current, rightTextRef.current]);
     };
-  }, []);
+  }, [SCROLL_DURATION]);
 
   return (
-    <>
-      {showHeroText && (
-        <div className="hero-text" ref={heroTextRef}>
-          STROY
+    <section className="relative min-h-screen overflow-hidden font-porlane">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute left-0 top-0 w-1/3 h-full overflow-hidden font-porlane">
+          <ScrollingTextColumn text="STROY" ref={leftTextRef} />
         </div>
-      )}
 
-      <div>
-        <div className='hero-sub-text text-center uppercase '>
-          <div>Hi! I&apos;m Rachel, creative</div>
-          <div>developer working </div>
-          <div>with awesome people </div>
-          <div>like you to create </div>
-          <div>memorable web</div>
-          <div> experiences that are</div>
-          <div>user-friendly and</div>
-          <div>designed to go places.</div>
+        <div className="absolute font-porlane right-0 top-0 w-1/3 h-full overflow-hidden">
+          <ScrollingTextColumn text="STUDIO" ref={rightTextRef} />
         </div>
-        <div className='py-12'></div>
       </div>
 
-    </>
-  )
+      <div className="relative z-10 min-h-screen flex items-center justify-center">
+        <div className="w-full max-w-4xl mx-auto h-96">
+          <ImageSlider />
+        </div>
+      </div>
+    </section>
+  );
 }

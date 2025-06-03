@@ -1,100 +1,185 @@
-'use client'
-import React, { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-interface RotatingCircleTextProps {
-  text: string;
-  backgroundColor: string;
-  textColor: string;
-  rotationDuration?: number;
-  maxRadius?: number;
-}
+gsap.registerPlugin(ScrollTrigger);
 
-export default function RotatingCircleText({
-  text,
-  backgroundColor,
-  textColor,
-  rotationDuration = 20,
-  maxRadius = 150
-}: RotatingCircleTextProps) {
-  const circleRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const maskRef = useRef<SVGCircleElement>(null);
+export default function MarqueeHeroSection() {
+  const marqueeSectionRef = useRef(null);
+  const marqueeLine1Ref = useRef(null);
+  const marqueeLine2Ref = useRef(null);
+  const videoSectionRef = useRef(null);
+  const videoWrapperRef = useRef(null);
+  const overlayRef = useRef(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    const marqueeSection = marqueeSectionRef.current;
+    const line1 = marqueeLine1Ref.current;
+    const line2 = marqueeLine2Ref.current;
 
-    const chars = text.split("");
-    const deg = 360 / chars.length;
 
-    if (circleRef.current && maskRef.current) {
-      circleRef.current.innerHTML = chars.map(
-        (char, i) => `<span style="transform:rotate(${i * deg}deg)">${char}</span>`
-      ).join("");
+    gsap.to(line1, {
+      x: () => `-${(line1 as unknown as HTMLElement).scrollWidth / 2}px`,
+      ease: "none",
+      scrollTrigger: {
+        trigger: marqueeSection,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
 
-      gsap.to(circleRef.current, {
-        rotation: 360,
-        duration: rotationDuration,
-        repeat: -1,
-        ease: "linear"
-      });
+    gsap.fromTo(line2,
+      { x: () => `-${(line2 as unknown as HTMLElement).scrollWidth / 2}px` },
+      {
+        x: () => `0px`,
+        ease: "none",
+        scrollTrigger: {
+          trigger: marqueeSection,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+      }
+    );
 
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-        pin: true,
-        onUpdate: (self) => {
-          gsap.to(maskRef.current, {
-            attr: {
-              r: self.progress * maxRadius,
-              cx: 50,
-              cy: 50
-            },
-            duration: 0.5
+    const videoSection = videoSectionRef.current;
+    const videoWrapper = videoWrapperRef.current;
+    const overlay = overlayRef.current;
+
+    // Initial: relative, centered, small
+    gsap.set(videoWrapper, {
+      position: "relative",
+      left: "50%",
+      top: "0",
+      xPercent: -50,
+      yPercent: 0,
+      width: "44vw",
+      height: "28vw",
+      zIndex: 1,
+    });
+    gsap.set(overlay, { opacity: 0 });
+
+    // Improved video animation with smoother transitions
+    ScrollTrigger.create({
+      trigger: videoSection,
+      start: "top center",
+      end: "bottom top",
+      scrub: 1,
+      pin: false,
+      onUpdate: (self) => {
+        const progress = self.progress;
+
+        if (progress <= 0) {
+          gsap.to(videoWrapper, {
+            position: "relative",
+            left: "50%",
+            top: "0",
+            xPercent: -50,
+            yPercent: 0,
+            width: "44vw",
+            height: "28vw",
+            zIndex: 1,
+            duration: 0.1,
+            ease: "none"
+          });
+        } else if (progress > 0 && progress < 1) {
+
+          const widthProgress = 44 + 56 * progress;
+          const heightProgress = 28 + 44 * progress;
+
+          gsap.to(videoWrapper, {
+            position: "fixed",
+            left: "50vw",
+            top: "50vh",
+            xPercent: -50,
+            yPercent: -50,
+            width: `${widthProgress}vw`,
+            height: `${heightProgress}vw`,
+            zIndex: 30,
+            duration: 0.1,
+            ease: "none"
+          });
+        } else if (progress >= 1) {
+          gsap.to(videoWrapper, {
+            position: "relative",
+            left: "50%",
+            top: "0",
+            xPercent: -50,
+            yPercent: 0,
+            width: "100vw",
+            height: "72vw",
+            zIndex: 1,
+            duration: 0.1,
+            ease: "none"
           });
         }
-      });
-    }
-  }, [text, rotationDuration, maxRadius]);
+
+        // Smoother overlay transition
+        const overlayOpacity = progress > 0.6 ? Math.min(1, (progress - 0.6) / 0.4) : 0;
+        gsap.to(overlay, {
+          opacity: overlayOpacity,
+          duration: 0.2,
+          ease: "power2.out"
+        });
+      },
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      gsap.killTweensOf([line1, line2, videoWrapper, overlay]);
+    };
+  }, []);
 
   return (
-    <div>
-      <div ref={containerRef} className="circle-container relative w-full h-screen overflow-hidden">
+    <section className="w-full bg-white overflow-hidden ">
+      {/* Marquee */}
+      <div
+        ref={marqueeSectionRef}
+        className="w-full"
+        style={{
+          paddingTop: "30vh",
+          paddingBottom: "4vw",
+        }}
+      >
+        {/* Line 1 (scrolls left) */}
         <div
-          ref={circleRef}
-          className="circle-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
-          style={{ color: textColor }}
+          ref={marqueeLine1Ref}
+          className="font-sans text-black"
+          style={{
+            fontSize: "12vw",
+            lineHeight: 1,
+            whiteSpace: "nowrap",
+            marginBottom: "0vw",
+            paddingLeft: 0,
+            paddingRight: 0,
+            willChange: "transform",
+          }}
         >
+          <span style={{ marginRight: "4vw" }}>Transforming Iconic Ideas</span>
+          <span style={{ marginRight: "4vw" }}>Transforming Iconic Ideas</span>
         </div>
-
-        <svg
-          className="mask fixed top-0 left-0 w-full h-full z-10 pointer-events-none"
-          viewBox="0 0 100 100"
+        {/* Line 2 (scrolls right) */}
+        <div
+          ref={marqueeLine2Ref}
+          className="text-black"
+          style={{
+            fontSize: "12vw",
+            lineHeight: 1,
+            whiteSpace: "nowrap",
+            marginTop: "-0.5vw",
+            paddingLeft: 0,
+            paddingRight: 0,
+            willChange: "transform",
+          }}
         >
-          <defs>
-            <mask id="circleMask">
-              <circle
-                cx="50"
-                cy="50"
-                r="0"
-                fill="white"
-                ref={maskRef}
-              />
-            </mask>
-          </defs>
-
-          <circle
-            cx="50"
-            cy="50"
-            r={maxRadius}
-            fill={backgroundColor}
-            mask="url(#circleMask)"
-          />
-        </svg>
+          <span style={{ marginRight: "4vw" }}>Creating Brand Precision</span>
+          <span style={{ marginRight: "0vw" }}>Creating Brand Precision</span>
+        </div>
       </div>
-    </div>
+
+
+      <div style={{ height: "28vw" }}></div>
+    </section>
   );
 }

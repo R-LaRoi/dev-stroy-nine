@@ -13,7 +13,10 @@ const nextConfig: NextConfig = {
         hostname: "user-attachments.githubusercontent.com",
       },
     ],
+    domains: ['res.cloudinary.com'], 
   },
+ 
 };
 
 export default nextConfig;
+

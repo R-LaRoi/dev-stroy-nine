@@ -9,14 +9,13 @@ export default function ImageSlider() {
   const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
 
   const images = [
-    "https://github.com/user-attachments/assets/3d9eadd1-3235-41d0-a96c-32799452c6c5",
-    "https://github.com/user-attachments/assets/a41507ba-d35e-429c-a892-69c30eaf3aac",
-    "https://github.com/user-attachments/assets/f4f90515-a796-4b24-8ef2-d87e19d94f3d",
-    "https://github.com/user-attachments/assets/bdb55176-afca-4462-bca4-0b3a4333e479",
-    "https://github.com/user-attachments/assets/9dd9e888-e903-45f0-9ade-4b0f886fb691",
-    "https://github.com/user-attachments/assets/09359235-9d6a-405b-bc1f-4fac5408172d"
-  ];
+    "https://res.cloudinary.com/dyczhwkws/image/upload/v1748923186/16_grxleu.png",
+    "https://res.cloudinary.com/dyczhwkws/image/upload/v1748923187/19_k270l9.png",
+    "https://res.cloudinary.com/dyczhwkws/image/upload/v1748923186/17_xgdkyj.png",
+    "https://res.cloudinary.com/dyczhwkws/image/upload/v1748923187/20_geeukj.png",
 
+
+  ];
 
   useEffect(() => {
     const imageElements = imagesRef.current.filter((img): img is HTMLImageElement => img !== null);

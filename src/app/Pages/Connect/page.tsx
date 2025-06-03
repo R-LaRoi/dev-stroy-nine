@@ -1,32 +1,49 @@
 'use client'
-import React from 'react'
 import CircleText from '@/app/Components/CircleText'
 import Footer from '@/app/Components/Footer'
 import Header from '@/app/Components/Header'
 import FormConnect from '@/app/Components/FormConnect'
-
-
+import Image from 'next/image'
+import { useRef } from 'react'
 
 export default function Connect() {
+  const imageRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <Header />
+
+
       <div>
-        <CircleText text="Get In Touch • Get In Touch •"
-          backgroundColor="#fe1034"
-          textColor="black"
-          rotationDuration={15}
-          maxRadius={200} />
+        <>
+          <CircleText />
+
+        </>
+
+
+
+
+
+
+        <div ref={imageRef}>
+          <Image
+            src='/assets/images/16.png'
+            alt="Collage of projects"
+            className="w-full h-auto rounded-lg shadow-lg"
+            width={600}
+            height={400}
+            style={{ objectFit: "cover" }}
+          />
+        </div>
       </div>
 
-      <div className="flex flex-col items-center p-4 md:p-[8.5rem] bg-[#171717]">
+      <div className="flex flex-col items-center p-4 md:p-[8.5rem] ">
         <div className="w-full max-w-3xl text-center">
           <div className="mt-4 md:mt-0 p-7">
-            <p className="text-3xl sm:text-4xl md:text-6xl leading-tight hero-sub-text text-[#f4e6d7]">
+            <p className="text-3xl sm:text-4xl md:text-6xl leading-tight hero-sub-text text-[#171717]">
               Ready to transform your digital presence?
             </p>
 
-            <h4 className="text-base sm:text-lg md:text-2xl lg:text-2xl leading-relaxed py-2  text-[#f4e6d7]">
+            <h4 className="text-base sm:text-lg md:text-2xl lg:text-2xl leading-relaxed py-2  text-[#292929]">
               I&apos;m always happy to help—drop us a line and let&apos;s get started.
             </h4>
             <hr className="my-2 md:my-4" style={{ borderTop: '1px solid black' }} />
@@ -39,17 +56,9 @@ export default function Connect() {
           </div>
         </div>
 
-        <div className="mt-[40%] p-8 text-xs text-center">
-          <div className='mb-4'>
-            <small>STROY</small>
-            <div>rachel@stroy.dev</div>
-          </div>
-          <div className='mb-4'>
-            <small>NEW YORK</small>
 
-          </div>
-        </div>
       </div>
+
       <Footer />
     </>
 
