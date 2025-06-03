@@ -7,7 +7,7 @@ import ImageSlider from "./ImageSlider";
 const TEXT_REPETITIONS = 12;
 const SCROLL_DURATION = 40;
 
-function ScrollingTextColumn({ text, ref }) {
+function ScrollingTextColumn({ text, ref }: { text: string; ref: React.RefObject<HTMLDivElement | null> }) {
   const textItems = Array.from({ length: TEXT_REPETITIONS }, (_, i) => (
     <div className="scrolling-text text-stone-100 text-8xl leading-none" key={i}>
       {text}
@@ -31,7 +31,7 @@ export default function HeroText() {
 
   useEffect(() => {
     if (leftTextRef.current && rightTextRef.current) {
-      const singleBlockHeight = leftTextRef.current.offsetHeight / 2;
+      const singleBlockHeight = (leftTextRef.current as HTMLDivElement).offsetHeight / 2;
 
       gsap.to(leftTextRef.current, {
         y: -singleBlockHeight,
