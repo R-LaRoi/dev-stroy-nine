@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import albumImg from '../../../public/assets/images/14.png'
-import { Reveal } from './Reveal'; // import Reveal
+import { Reveal } from './Reveal';
 
 export default function Mission() {
 
@@ -26,13 +26,13 @@ export default function Mission() {
         <div className="max-w-7xl mx-auto p-12">
 
           <div className="grid lg:grid-cols-2 gap-8 items-start mb-32">
-            {/* Left column - About us label */}
+
             <Reveal>
               <div>
                 <p className="text-sm text-gray-500">Mission</p>
               </div>
             </Reveal>
-            {/* Right column - Main headline and content */}
+
             <Reveal>
               <div>
                 <h2 className="mb-12 text-7xl">

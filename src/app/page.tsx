@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Header from "./Components/Header";
-
+import Footer from "./Components/Footer"
 import HeroText from "./Components/HeroText";
 import Services from "./Components/Services";
 import LoadingPage from './Components/LoadingPage';
@@ -38,7 +38,7 @@ export default function Home() {
             <Services />
             <WorkFooter
               spanText="Define and build your digital presence."
-              h1Text=" Transforming complex design challenges into intuitive, user-friendly solutions, empowering your core focus."
+              h1Text=" Helping you to focus on transforming complex design challenges into intuitive, user-friendly solutions,"
 
             />
 

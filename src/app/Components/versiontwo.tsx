@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "./Footer";
-
+import { WorkFooter } from "./WorkFooter";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ZoomingHeroVideo() {
@@ -236,66 +236,12 @@ export default function ZoomingHeroVideo() {
             style={{ width: "100%", height: "100%", display: "block" }}
           />
           {/* OVERLAY (centered text/buttons) */}
-          <div
-            ref={overlayRef}
-            style={{
-              position: "absolute",
-              inset: 0,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              zIndex: 5,
-              color: "#fff",
-              textAlign: "center",
-              pointerEvents: "none",
-              fontFamily: "inherit",
-              padding: isMobile ? "4vw" : "2vw",
-              transition: "opacity .3s",
-            }}
-          >
-            <div style={{
-              fontSize: isMobile ? "1.1rem" : "1.2rem",
-              letterSpacing: "0.1em",
-              opacity: 0.85,
-              marginBottom: isMobile ? "0.7rem" : "1.2rem",
-              fontWeight: 400,
-            }}>
-              Ready to transform your digital presence?
-            </div>
-            <h1 style={{
-              fontSize: isMobile ? "2rem" : "3rem",
-              fontWeight: 500,
-              marginBottom: isMobile ? "1.2rem" : "2rem",
-              textShadow: "0 2px 16px rgba(0,0,0,0.32)",
-              lineHeight: isMobile ? "1" : "1.2",
-            }}>
-              Let's build a website that truly reflects your brand <br /> and connects with your audience.
-            </h1>
-            <div style={{
-              display: "flex",
-              gap: "1rem",
-              pointerEvents: "auto",
-              justifyContent: "center",
-              flexWrap: "wrap"
-            }}>
-
-              <button
-                style={{
-                  fontSize: "1rem",
-                  background: "#222",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: "2rem",
-                  padding: isMobile ? "0.7rem 1.8rem" : "0.8rem 2rem",
-                  fontWeight: 600,
-                  cursor: "pointer"
-                }}
-              >
-                Let's Talk &rarr;
-              </button>
-            </div>
-          </div>
+          <WorkFooter
+            spanText="ACCELERATE YOUR VISION"
+            h1Text="Ready to move from concept to impact? "
+            buttonText="Let's connect."
+            buttonLink="Pages/connect"
+          />
         </div>
 
       </section>

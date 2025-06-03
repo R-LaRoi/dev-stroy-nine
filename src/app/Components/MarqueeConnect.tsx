@@ -1,8 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Reveal } from "./Reveal"; // <-- Import Reveal
-
+import { Reveal } from "./Reveal";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function MarqueeHeroSection() {

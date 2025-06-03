@@ -11,18 +11,10 @@ export default function Connect() {
   return (
     <>
       <Header />
-
-
       <div>
         <>
           <CircleText />
-
         </>
-
-
-
-
-
 
         <div ref={imageRef}>
           <Image
@@ -55,8 +47,6 @@ export default function Connect() {
             </div>
           </div>
         </div>
-
-
       </div>
 
       <Footer />
