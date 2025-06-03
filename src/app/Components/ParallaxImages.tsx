@@ -148,7 +148,7 @@ export default function ImageChangeOnScroll() {
       </div>
 
       {/* SCROLL TRIGGER SECTIONS */}
-      {contentSlides.map((slide, index) => (
+      {contentSlides.map((slide) => (
         <div
           key={slide.id + '-trigger'}
           id={slide.id}

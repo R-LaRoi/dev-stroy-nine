@@ -21,12 +21,12 @@ const Marquee = ({ text, speed = 0.5 }: { text: string, speed?: number }) => {
     marqueeElement.appendChild(duplicatedContent);
 
     gsap.to(marqueeElement, {
-      x: `-=${content.offsetWidth}`, // Animate by the width of the original content
+      x: `-=${content.offsetWidth}`,
       ease: "none",
-      duration: content.offsetWidth / 100 * speed, // Adjust speed based on content width
+      duration: content.offsetWidth / 100 * speed,
       repeat: -1,
       onRepeat: () => {
-        gsap.set(marqueeElement, { x: 0 }); // Reset position when loop restarts
+        gsap.set(marqueeElement, { x: 0 });
       },
     });
 
