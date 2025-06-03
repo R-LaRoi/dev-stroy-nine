@@ -51,11 +51,7 @@ export default function Contact() {
       className='contact relative group cursor-pointer'
     >
       <RotatingCircleText
-        text="Get In Touch • Get In Touch • "
-        backgroundColor="#f4e6d7"
-        textColor="black"
-        rotationDuration={15}
-        maxRadius={200}
+
       />
 
       {isHovered && (
