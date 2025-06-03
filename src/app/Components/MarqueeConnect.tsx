@@ -6,13 +6,13 @@ import { Reveal } from "./Reveal"; // <-- Import Reveal
 gsap.registerPlugin(ScrollTrigger);
 
 export default function MarqueeHeroSection() {
-  const marqueeSectionRef = useRef(null);
-  const marqueeLine1Ref = useRef(null);
-  const marqueeLine2Ref = useRef(null);
-  const videoSectionRef = useRef(null);
-  const videoWrapperRef = useRef(null);
-  const overlayRef = useRef(null);
-  const nextSectionRef = useRef(null);
+  const marqueeSectionRef = useRef<HTMLDivElement>(null);
+  const marqueeLine1Ref = useRef<HTMLDivElement>(null);
+  const marqueeLine2Ref = useRef<HTMLDivElement>(null);
+  const videoSectionRef = useRef<HTMLDivElement>(null);
+  const videoWrapperRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const nextSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     return () => {

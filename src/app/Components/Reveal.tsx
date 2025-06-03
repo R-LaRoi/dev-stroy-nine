@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
 interface Props {
-  children: JSX.Element;
+  children: React.ReactNode;
   width?: 'fit-content' | '100%';
 }
 

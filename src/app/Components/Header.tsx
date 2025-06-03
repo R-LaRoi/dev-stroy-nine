@@ -61,21 +61,21 @@ export default function Header() {
           <Link
             href="/Pages/Work"
             className=" hover:tracking-wider hover:text-zinc-700 transition-all duration-300 text-sm font-medium text-gray-700 hover:text-black transition-colors "
-            onClick={() => setIsMenuOpen(false)} // Close menu on link click
+            onClick={() => setIsMenuOpen(false)}
           >
             WORK
           </Link>
           <Link
             href="/Pages/Services"
             className="hover:tracking-wider hover:text-zinc-700 transition-all duration-300 text-sm font-medium text-gray-700 hover:text-black transition-colors"
-            onClick={() => setIsMenuOpen(false)} // Close menu on link click
+            onClick={() => setIsMenuOpen(false)}
           >
             SERVICES
           </Link>
           <Link
             href="/Pages/Connect"
             className="hover:tracking-wider hover:text-zinc-700 transition-all duration-300 text-sm font-medium text-gray-700 hover:text-black transition-colors"
-            onClick={() => setIsMenuOpen(false)} // Close menu on link click
+            onClick={() => setIsMenuOpen(false)}
           >
             CONNECT
           </Link>
