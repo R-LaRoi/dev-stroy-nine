@@ -14,7 +14,7 @@ export const projectItems: projectItem[] = [
 
   {
     id: 'thirty',
-    title: 'GOAL Tracker',
+    title: 'Goal Tracker',
     description: 'Design & Development',
     link: 'https://icp-v1.vercel.app/',
     image: 'https://res.cloudinary.com/dyczhwkws/image/upload/v1748925333/12_nsklx6.png',
@@ -47,8 +47,6 @@ export const projectItems: projectItem[] = [
     link: 'https://github.com/R-LaRoi/redflag_v1',
     image: 'https://res.cloudinary.com/dyczhwkws/image/upload/v1748925333/11_xuq1ry.png',
   },
-
-
 
 
   {
@@ -102,13 +100,6 @@ export const projectItems: projectItem[] = [
 
 
 
-  {
-    id: 'ten',
-    title: 'Career Planning',
-    description: 'Design & Development',
-    link: 'https://icp-v1.vercel.app/',
-    image: 'https://github.com/user-attachments/assets/4bad19f8-9798-4b4b-acee-8f6020a6b6cf',
-  },
 
   {
     id: 'fifteen',
