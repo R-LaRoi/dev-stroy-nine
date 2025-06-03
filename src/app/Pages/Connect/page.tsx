@@ -1,12 +1,13 @@
 'use client'
-import React from 'react'
 import CircleText from '@/app/Components/CircleText'
 import Footer from '@/app/Components/Footer'
 import Header from '@/app/Components/Header'
 import FormConnect from '@/app/Components/FormConnect'
-
+import Image from 'next/image'
+import { useRef } from 'react'
 
 export default function Connect() {
+  const imageRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <Header />
@@ -17,6 +18,22 @@ export default function Connect() {
           <CircleText />
 
         </>
+
+
+
+
+
+
+        <div ref={imageRef}>
+          <Image
+            src='/assets/images/16.png'
+            alt="Collage of projects"
+            className="w-full h-auto rounded-lg shadow-lg"
+            width={600}
+            height={400}
+            style={{ objectFit: "cover" }}
+          />
+        </div>
       </div>
 
       <div className="flex flex-col items-center p-4 md:p-[8.5rem] ">
@@ -39,17 +56,9 @@ export default function Connect() {
           </div>
         </div>
 
-        <div className="mt-[40%] p-8 text-xs text-center">
-          <div className='mb-4'>
-            <small>STROY</small>
-            <div>rachel@stroy.dev</div>
-          </div>
-          <div className='mb-4'>
-            <small>NEW YORK</small>
 
-          </div>
-        </div>
       </div>
+
       <Footer />
     </>
 

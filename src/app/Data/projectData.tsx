@@ -10,14 +10,29 @@ interface projectItem {
 
 export const projectItems: projectItem[] = [
 
+
+
+  {
+    id: 'thirty',
+    title: 'GOAL Tracker',
+    description: 'Design & Development',
+    link: 'https://icp-v1.vercel.app/',
+    image: 'https://res.cloudinary.com/dyczhwkws/image/upload/v1748925333/12_nsklx6.png',
+  },
   {
     id: 'six',
     title: 'Tamika Duncan',
     description: 'Design & Development',
     link: 'https://www.tamikaduncan.com/',
-    image: 'https://github.com/user-attachments/assets/80175865-47a5-4cc1-9a5e-3e196074f019',
+    image: 'https://res.cloudinary.com/dyczhwkws/image/upload/v1748925818/Screenshot_2025-05-29_at_5.23.01_PM_fzueqr.png',
   },
-
+  {
+    id: 'thirtyone',
+    title: 'LQ Consulting',
+    description: 'Design & Development',
+    link: 'lgc-web-prototype.vercel.app',
+    image: 'https://res.cloudinary.com/dyczhwkws/image/upload/v1748925333/10_qvjoyv.png',
+  },
   {
     id: 'nine',
     title: 'Atelier 718',
@@ -25,6 +40,16 @@ export const projectItems: projectItem[] = [
     link: 'https://atelier718.com/',
     image: 'https://github.com/user-attachments/assets/17cb54ef-5ccc-4d05-a821-a8686b7778b3',
   },
+  {
+    id: 'thirtytwo',
+    title: 'Red Flag Plugin',
+    description: 'Design & Development',
+    link: 'https://github.com/R-LaRoi/redflag_v1',
+    image: 'https://res.cloudinary.com/dyczhwkws/image/upload/v1748925333/11_xuq1ry.png',
+  },
+
+
+
 
   {
     id: 'two',

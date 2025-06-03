@@ -5,8 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 
 // Import your local images
-import styleImage from "../../../public/assets/images/13.png";
-import tamikaImage from "../../../public/assets/images/12.png";
+import styleImage from "../../../public/assets/images/5.png";
+import tamikaImage from "../../../public/assets/images/01.png";
 import jmpnImage from "../../../public/assets/images/10.png";
 import atelierImage from "../../../public/assets/images/11.png";
 
@@ -14,7 +14,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const contentSlides = [
   { id: 'slide-1', imageSrc: styleImage, text: 'TAMIKA DUNCAN' },
-  { id: 'slide-2', imageSrc: tamikaImage, text: 'TAMIKA DUNCAN' },
+  {
+    id: 'slide-2', imageSrc: tamikaImage, text: 'AMAS HAUS '
+  },
   { id: 'slide-3', imageSrc: jmpnImage, text: 'FIT DAILY' },
   { id: 'slide-4', imageSrc: atelierImage, text: 'ATELIER 718' },
 ];

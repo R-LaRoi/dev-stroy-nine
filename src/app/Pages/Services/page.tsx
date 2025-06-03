@@ -152,6 +152,13 @@ export default function Services() {
             </div>
           </div>
         </section>
+        <video playsInline autoPlay muted loop className="md:order-2 def-video p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32" >
+          <source
+            src="/assets/videos/tamv1.mp4"
+            type="video/mp4"
+          />
+
+        </video>
         <WorkFooter
           spanText="ACCELERATE YOUR VISION"
           h1Text="Ready to move from concept to impact? "

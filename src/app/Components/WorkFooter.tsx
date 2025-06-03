@@ -21,7 +21,7 @@ const images = [
     className: "left-[8%] top-[8%] w-44 h-44 sm:left-32 sm:top-[10%]",
   },
   {
-    src: "./../assets/images/5.png",
+    src: "./../assets/images/12.png",
     alt: "Person in blue shirt",
     className: "right-[8%] top-[8%] w-44 h-44 sm:right-32 sm:top-[10%]",
   },

@@ -93,8 +93,8 @@ export default function Work({ showProjects }: WorkProps) {
           <div className="p-8 pb-32">
             <p className="text-md text-black mb-6">Work</p>
             <div className="flex justify-between items-end">
-              <h1 className=" text-5xl p-16 leading-none md:text-5xl md:leading-tight lg:text-[6vw] lg:leading-none  max-w-5xl ">
-                From Concept To <br /> Impactful User <br />Experiences.
+              <h1 className=" text-5xl pt-8 leading-none md:text-5xl md:leading-tight lg:text-[7vw] lg:leading-none  max-w-5xl ">
+                Simplifying Design. Empowering Users.
 
               </h1>
               <div className="hidden md:flex items-center text-blue-500 cursor-pointer hover:text-blue-400 transition-colors">
