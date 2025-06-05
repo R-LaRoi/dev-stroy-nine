@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-gray-200">
 
         <div>
-          <div className="uppercase text-xs text-gray-500 font-semibold mb-2">Loaction</div>
+          <div className="uppercase text-xs text-gray-500 font-semibold mb-2">Location</div>
           <div className="text-sm leading-relaxed mb-2">
             <br />New York, NY<br />United States
           </div>
