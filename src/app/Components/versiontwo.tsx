@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "./Footer";
-import { WorkFooter } from "./WorkFooter";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ZoomingHeroVideo() {

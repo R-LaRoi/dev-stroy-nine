@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Header from "./Components/Header";
-import Footer from "./Components/Footer"
+
 import HeroText from "./Components/HeroText";
 import Services from "./Components/Services";
 import LoadingPage from './Components/LoadingPage';

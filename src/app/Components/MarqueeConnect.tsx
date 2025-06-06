@@ -15,12 +15,8 @@ function useIsMobile() {
   return isMobile;
 }
 
-
-
-
 export default function MarqueeHeroSection() {
-
-  const isMobile = useIsMobile(); // <-- Use here
+  const isMobile = useIsMobile();
   const marqueeSectionRef = useRef<HTMLDivElement>(null);
   const marqueeLine1Ref = useRef<HTMLDivElement>(null);
   const marqueeLine2Ref = useRef<HTMLDivElement>(null);
@@ -42,7 +38,6 @@ export default function MarqueeHeroSection() {
   }, []);
 
   useEffect(() => {
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
     if (!isMobile) {
       const marqueeSection = marqueeSectionRef.current;
       const line1 = marqueeLine1Ref.current;
@@ -180,8 +175,7 @@ export default function MarqueeHeroSection() {
         },
       });
     }
-
-  }, []);
+  }, [isMobile]); // depend on isMobile
 
   return (
     <section className="w-full bg-white overflow-hidden">
@@ -244,7 +238,7 @@ export default function MarqueeHeroSection() {
           }}
         >
           <video
-            src="/assets/videos/t_one.mp4"
+            src={isMobile ? "/assets/videos/mobile.mp4" : "/assets/videos/t_one.mp4"}
             className="w-full h-full object-fill"
             autoPlay
             muted
@@ -290,7 +284,6 @@ export default function MarqueeHeroSection() {
         <div style={{ height: "100vh" }}></div>
       </div>
       <div ref={nextSectionRef} className="next-section-content" style={{ height: "20vh", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
-
       </div>
     </section>
   );
