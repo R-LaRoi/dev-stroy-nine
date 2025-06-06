@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Reveal } from "./Reveal";
 import Link from "next/link";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function useIsMobile() {
@@ -285,10 +286,10 @@ export default function MarqueeHeroSection() {
                       >
                         Let's Talk &rarr;
                       </button>
-                    </Link>
+                    </Link> {/* Corrected closing Link tag */}
                   </div>
                 </div>
-              </Reveal>
+              </Reveal> {/* Corrected closing Reveal tag */}
             </div>
           </div>
         </div>

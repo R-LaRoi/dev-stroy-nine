@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "./Footer";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -237,10 +238,28 @@ export default function ZoomingHeroVideo() {
           />
           {/* OVERLAY (centered text/buttons) */}
 
+          <div>
+            <Link href="/Pages/Connect" >
+              <button
+                style={{
+                  fontSize: "1rem",
+                  background: "#222",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "2rem",
+                  padding: isMobile ? "0.7rem 1.8rem" : "0.8rem 2rem",
+                  fontWeight: 600,
+                  cursor: "pointer"
+                }}
+              >
+                Let's Talk &rarr;
+              </button>
+            </Link>
+          </div>
         </div>
 
-      </section>
-      <div
+
+      </section>      <div
         style={{
           minHeight: "100vh",
           background: "#fff",
