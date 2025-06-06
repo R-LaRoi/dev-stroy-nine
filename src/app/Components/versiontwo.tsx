@@ -236,12 +236,7 @@ export default function ZoomingHeroVideo() {
             style={{ width: "100%", height: "100%", display: "block" }}
           />
           {/* OVERLAY (centered text/buttons) */}
-          <WorkFooter
-            spanText="ACCELERATE YOUR VISION"
-            h1Text="Ready to move from concept to impact? "
-            buttonText="Let's connect."
-            buttonLink="Pages/connect"
-          />
+
         </div>
 
       </section>

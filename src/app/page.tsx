@@ -38,7 +38,7 @@ export default function Home() {
             <Services />
             <WorkFooter
               spanText="Define and build your digital presence."
-              h1Text=" Helping you to focus on transforming complex design challenges into intuitive, user-friendly solutions,"
+              h1Text=" Helping you to focus on transforming complex design challenges into intuitive, user-friendly solutions."
 
             />
 

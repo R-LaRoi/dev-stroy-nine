@@ -1,10 +1,26 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Reveal } from "./Reveal";
 gsap.registerPlugin(ScrollTrigger);
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+}
+
+
+
+
 export default function MarqueeHeroSection() {
+
+  const isMobile = useIsMobile(); // <-- Use here
   const marqueeSectionRef = useRef<HTMLDivElement>(null);
   const marqueeLine1Ref = useRef<HTMLDivElement>(null);
   const marqueeLine2Ref = useRef<HTMLDivElement>(null);
