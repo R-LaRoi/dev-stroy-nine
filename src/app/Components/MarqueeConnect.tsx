@@ -270,7 +270,7 @@ export default function MarqueeHeroSection() {
                     Let's build a website that truly reflects your brand and connects with your audience
                   </h3>
                   <div className="flex justify-center mt-4">
-                    <Link href="/Pages/Connect" passHref legacyBehavior>
+                    <Link href="/Pages/Connect">
                       <button
                         style={{
                           fontSize: "1rem",
@@ -278,7 +278,7 @@ export default function MarqueeHeroSection() {
                           color: "#fff",
                           border: "none",
                           borderRadius: "2rem",
-                          padding: isMobile ? "0.7rem 1.8rem" : "0.8rem 2rem",
+                          padding: "0.7rem 1.8rem",
                           fontWeight: 600,
                           cursor: "pointer"
                         }}
