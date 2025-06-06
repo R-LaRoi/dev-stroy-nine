@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Reveal } from "./Reveal";
+import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
 
 function useIsMobile() {
@@ -269,12 +270,22 @@ export default function MarqueeHeroSection() {
                     Let's build a website that truly reflects your brand and connects with your audience
                   </h3>
                   <div className="flex justify-center mt-4">
-                    <button className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors flex items-center gap-2 pointer-events-auto shadow">
-                      Let's Talk
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </button>
+                    <Link href="/Pages/Connect" passHref legacyBehavior>
+                      <button
+                        style={{
+                          fontSize: "1rem",
+                          background: "#222",
+                          color: "#fff",
+                          border: "none",
+                          borderRadius: "2rem",
+                          padding: isMobile ? "0.7rem 1.8rem" : "0.8rem 2rem",
+                          fontWeight: 600,
+                          cursor: "pointer"
+                        }}
+                      >
+                        Let's Talk &rarr;
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </Reveal>
