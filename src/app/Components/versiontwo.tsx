@@ -280,20 +280,22 @@ export default function ZoomingHeroVideo() {
               flexWrap: "wrap"
             }}>
 
-              <button
-                style={{
-                  fontSize: "1rem",
-                  background: "#222",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: "2rem",
-                  padding: isMobile ? "0.7rem 1.8rem" : "0.8rem 2rem",
-                  fontWeight: 600,
-                  cursor: "pointer"
-                }}
-              >
-                Let's Talk &rarr;
-              </button>
+              <Link href="/Pages/Connect" passHref legacyBehavior>
+  <button
+    style={{
+      fontSize: "1rem",
+      background: "#222",
+      color: "#fff",
+      border: "none",
+      borderRadius: "2rem",
+      padding: isMobile ? "0.7rem 1.8rem" : "0.8rem 2rem",
+      fontWeight: 600,
+      cursor: "pointer"
+    }}
+  >
+    Let's Talk &rarr;
+  </button>
+</Link>
             </div>
           </div>
         </div>
