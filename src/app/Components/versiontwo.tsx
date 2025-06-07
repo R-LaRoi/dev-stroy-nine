@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "./Footer";
 import Link from "next/link";
-
+import '../globals.css';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ZoomingHeroVideo() {
@@ -226,7 +226,7 @@ export default function ZoomingHeroVideo() {
         </div>
 
         {/* VIDEO */}
-        <div ref={videoWrapperRef}>
+        <div ref={videoWrapperRef} style={{ position: "relative", width: "100%", height: "100%" }}>
           <video
             src={isMobile ? "/assets/videos/18arr-me.mp4" : "/assets/videos/t_one.mp4"}
             className="w-full h-full object-cover"
@@ -237,8 +237,52 @@ export default function ZoomingHeroVideo() {
             style={{ width: "100%", height: "100%", display: "block" }}
           />
           {/* OVERLAY (centered text/buttons) */}
-
-          <div>
+          <div
+            ref={overlayRef}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              zIndex: 3,
+              background: "transparent",
+              pointerEvents: "none"
+            }}
+          >
+            <span
+              style={{
+                color: "#fff",
+                fontSize: isMobile ? "1.1rem" : "1.4rem",
+                letterSpacing: "0.02em",
+                marginBottom: "0.8rem",
+                textShadow: "0 2px 8px rgba(0,0,0,0.18)",
+                pointerEvents: "auto"
+              }}
+            >
+              Ready to transform your digital presence?
+            </span>
+            <h1
+              style={{
+                color: "#fff",
+                fontSize: isMobile ? "1.7rem" : "2.8rem",
+                lineHeight: 1.2,
+                textAlign: "center",
+                fontWeight: 700,
+                margin: 0,
+                marginBottom: "1.5rem",
+                textShadow: "0 2px 8px rgba(0,0,0,0.20)",
+                pointerEvents: "auto"
+              }}
+            >
+              Let's build a website that<br />
+              truly reflects your brand<br />
+              and connects with your audience.
+            </h1>
             <Link href="/Pages/Connect" >
               <button
                 style={{
@@ -247,19 +291,19 @@ export default function ZoomingHeroVideo() {
                   color: "#fff",
                   border: "none",
                   borderRadius: "2rem",
-                  padding: isMobile ? "0.7rem 1.8rem" : "0.8rem 2rem",
+                  padding: "0.7rem 1.8rem",
                   fontWeight: 600,
-                  cursor: "pointer"
+                  cursor: "pointer",
+                  pointerEvents: "auto"
                 }}
               >
-                Let's Talk &rarr;
+                Let's Talklok &rarr;
               </button>
             </Link>
           </div>
         </div>
-
-
-      </section>      <div
+      </section>
+      <div
         style={{
           minHeight: "100vh",
           background: "#fff",
@@ -270,7 +314,6 @@ export default function ZoomingHeroVideo() {
           justifyContent: "center"
         }}
       >
-
         <Footer />
       </div>
     </>

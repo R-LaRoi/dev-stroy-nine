@@ -11,14 +11,6 @@ interface projectItem {
 export const projectItems: projectItem[] = [
 
 
-
-  {
-    id: 'thirty',
-    title: 'Goal Tracker',
-    description: 'Design & Development',
-    link: 'https://icp-v1.vercel.app/',
-    image: 'https://res.cloudinary.com/dyczhwkws/image/upload/v1748925333/12_nsklx6.png',
-  },
   {
     id: 'six',
     title: 'Tamika Duncan',
@@ -27,12 +19,27 @@ export const projectItems: projectItem[] = [
     image: 'https://res.cloudinary.com/dyczhwkws/image/upload/v1748925818/Screenshot_2025-05-29_at_5.23.01_PM_fzueqr.png',
   },
   {
+    id: 'thirty',
+    title: 'Goal Tracker',
+    description: 'Design & Development',
+    link: 'https://icp-v1.vercel.app/',
+    image: 'https://res.cloudinary.com/dyczhwkws/image/upload/v1748925333/12_nsklx6.png',
+  }, {
+    id: 'seventynine',
+    title: 'Only Give Props',
+    description: 'Design & Development',
+    link: 'https://only-give-props.vercel.app/',
+    image: 'https://res.cloudinary.com/dyczhwkws/image/upload/v1749258599/Screenshot_2025-06-06_at_5.40.07_PM_y8w1au.png',
+  },
+
+  {
     id: 'thirtyone',
     title: 'LQ Consulting',
     description: 'Design & Development',
-    link: 'lgc-web-prototype.vercel.app',
+    link: 'https://lgc-web-prototype.vercel.app/',
     image: 'https://res.cloudinary.com/dyczhwkws/image/upload/v1748925333/10_qvjoyv.png',
   },
+
   {
     id: 'nine',
     title: 'Atelier 718',
