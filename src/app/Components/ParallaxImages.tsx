@@ -23,8 +23,8 @@ const contentSlides = [
 
 export default function ImageChangeOnScroll() {
   const stickyImageContainerRef = useRef<HTMLDivElement | null>(null);
-  const imageRefs = useRef<(HTMLDivElement | null)[]>([]); // Ref to the image wrapper div
-  const textRefs = useRef<(HTMLHeadingElement | null)[]>([]); // Ref to the h2 text
+  const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const textRefs = useRef<(HTMLHeadingElement | null)[]>([]);
 
   useEffect(() => {
     if (!stickyImageContainerRef.current) {

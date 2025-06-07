@@ -1,12 +1,24 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Reveal } from "./Reveal"; 
-import Link from 'next/link'
+import { Reveal } from "./Reveal";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+}
+
 export default function MarqueeHeroSection() {
+  const isMobile = useIsMobile();
   const marqueeSectionRef = useRef<HTMLDivElement>(null);
   const marqueeLine1Ref = useRef<HTMLDivElement>(null);
   const marqueeLine2Ref = useRef<HTMLDivElement>(null);
@@ -28,7 +40,6 @@ export default function MarqueeHeroSection() {
   }, []);
 
   useEffect(() => {
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
     if (!isMobile) {
       const marqueeSection = marqueeSectionRef.current;
       const line1 = marqueeLine1Ref.current;
@@ -166,8 +177,7 @@ export default function MarqueeHeroSection() {
         },
       });
     }
-
-  }, []);
+  }, [isMobile]); // depend on isMobile
 
   return (
     <section className="w-full bg-white overflow-hidden">
@@ -230,7 +240,7 @@ export default function MarqueeHeroSection() {
           }}
         >
           <video
-            src="/assets/videos/t_one.mp4"
+            src={isMobile ? "/assets/videos/mobile.mp4" : "/assets/videos/t_one.mp4"}
             className="w-full h-full object-fill"
             autoPlay
             muted
@@ -261,32 +271,31 @@ export default function MarqueeHeroSection() {
                     Let's build a website that truly reflects your brand and connects with your audience
                   </h3>
                   <div className="flex justify-center mt-4">
-                   <Link href="/Pages/Connect" passHref legacyBehavior>
-  <button
-    style={{
-      fontSize: "1rem",
-      background: "#222",
-      color: "#fff",
-      border: "none",
-      borderRadius: "2rem",
-      padding: isMobile ? "0.7rem 1.8rem" : "0.8rem 2rem",
-      fontWeight: 600,
-      cursor: "pointer"
-    }}
-  >
-    Let's Talk &rarr;
-  </button>
-</Link>
+                    <Link href="/Pages/Connect">
+                      <button
+                        style={{
+                          fontSize: "1rem",
+                          background: "#222",
+                          color: "#fff",
+                          border: "none",
+                          borderRadius: "2rem",
+                          padding: "0.7rem 1.8rem",
+                          fontWeight: 600,
+                          cursor: "pointer"
+                        }}
+                      >
+                        Let's Talk &rarr;
+                      </button>
+                    </Link> {/* Corrected closing Link tag */}
                   </div>
                 </div>
-              </Reveal>
+              </Reveal> {/* Corrected closing Reveal tag */}
             </div>
           </div>
         </div>
         <div style={{ height: "100vh" }}></div>
       </div>
       <div ref={nextSectionRef} className="next-section-content" style={{ height: "20vh", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
-
       </div>
     </section>
   );

@@ -163,7 +163,7 @@ export default function Services() {
           spanText="ACCELERATE YOUR VISION"
           h1Text="Ready to move from concept to impact? "
           buttonText="Let's connect."
-          buttonLink="/services"
+          buttonLink="Pages/connect"
         />
         <Footer />
       </div>
