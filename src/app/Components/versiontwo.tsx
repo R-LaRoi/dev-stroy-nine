@@ -297,7 +297,7 @@ export default function ZoomingHeroVideo() {
                   pointerEvents: "auto"
                 }}
               >
-                Let's Talklok &rarr;
+                Let's Talk &rarr;
               </button>
             </Link>
           </div>
